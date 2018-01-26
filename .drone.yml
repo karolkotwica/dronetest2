@@ -1,0 +1,5 @@
+pipeline:
+  build:
+    image: frekele/ant
+    commands:
+      - ant -version
