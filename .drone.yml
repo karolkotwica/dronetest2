@@ -2,5 +2,7 @@ pipeline:
   build:
     image: frekele/ant
     commands:
-      - ant -version
-      - java -version
+      #- ant -version
+      #- java -version
+      - pwd
+      - ant compile jar run
