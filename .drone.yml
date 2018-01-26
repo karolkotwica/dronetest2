@@ -3,3 +3,4 @@ pipeline:
     image: frekele/ant
     commands:
       - ant -version
+      - java -version
