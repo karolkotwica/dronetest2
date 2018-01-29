@@ -15,6 +15,6 @@ pipeline:
       - unzip salesforce_ant_41.0.zip
       - ls
       - cd ..
-      - ls      
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=${SFPASS}
+      - ls
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       # - ant compile jar run
