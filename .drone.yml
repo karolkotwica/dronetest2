@@ -14,5 +14,7 @@ pipeline:
       - ls
       # - unzip salesforce_ant_41.0.zip
       - ls
-      - ant -lib migration_tool/ant-salesforce.jar
+      - cd ..
+      - ls      
+      # - ant -lib migration_tool/ant-salesforce.jar
       # - ant compile jar run
