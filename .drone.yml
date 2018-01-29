@@ -16,5 +16,5 @@ pipeline:
       - ls
       - cd ..
       - ls      
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=${SFUSERNAME} -Dpassword=${SFPASS}
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=${SFPASS}
       # - ant compile jar run
