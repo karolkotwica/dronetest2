@@ -1,6 +1,7 @@
 pipeline:
   build:
     image: frekele/ant
+    secrets: [ testkey ]
     commands:
       #- ant -version
       #- java -version
