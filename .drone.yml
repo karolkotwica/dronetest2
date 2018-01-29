@@ -1,14 +1,14 @@
 pipeline:
   build:
     image: frekele/ant
-    secrets: [ testkey ]
+    secrets: [ sfusername, sfpass ]
     commands:
       #- ant -version
       #- java -version
       - pwd
-      - echo $${TESTKEY}
-      - echo ${TESTKEY}
-      - mkdir migration_tool
+      - echo $${SFUSERNAME}
+      - echo ${SFPASS}
+      # - mkdir migration_tool
       - cd migration_tool
       # - wget https://gs0.salesforce.com/dwnld/SfdcAnt/salesforce_ant_41.0.zip
       - ls
@@ -16,5 +16,5 @@ pipeline:
       - ls
       - cd ..
       - ls      
-      # - ant -lib migration_tool/ant-salesforce.jar
+      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=${SFUSERNAME} -Dpassword=${SFPASS}
       # - ant compile jar run
