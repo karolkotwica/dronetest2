@@ -8,4 +8,5 @@ pipeline:
       - pwd
       - echo $${TESTKEY}
       - echo ${TESTKEY}
-      - ant compile jar run
+      - wget -v
+      # - ant compile jar run
