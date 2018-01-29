@@ -8,5 +8,5 @@ pipeline:
       - pwd
       - echo $${TESTKEY}
       - echo ${TESTKEY}
-      - wget -v
+      - wget https://gs0.salesforce.com/dwnld/SfdcAnt/salesforce_ant_41.0.zip
       # - ant compile jar run
