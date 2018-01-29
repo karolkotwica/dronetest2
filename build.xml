@@ -18,33 +18,7 @@
                 checkOnly="true"
                 maxPoll="2000"
                 ignorewarnings="true">
-            <runTest>PC_ChildPartnerListControllerTest</runTest>
-            <runTest>PC_ChildPartnersEditFormControllerTest</runTest>
-            <runTest>PC_ChildPartnersHandlerTest</runTest>
-            <runTest>PC_CommunityUsersListControllerTest</runTest>
-            <runTest>PC_CustomerDangerZoneControllerTest</runTest>
-            <runTest>PC_CustomerHandlerTest</runTest>
-            <runTest>PC_CustomerListControllerTest</runTest>
-            <runTest>PC_CustomerUserChangePasswordControlTest</runTest>
-            <runTest>PC_CustomerUsersControllerTest</runTest>
-            <runTest>PC_DictionaryUtilsTest</runTest>
-            <runTest>PC_EditPhoneSettingsControllerTest</runTest>
-            <runTest>PC_ExceptionTest</runTest>
-            <runTest>PC_IntegrationsControllerTest</runTest>
-            <runTest>PC_LoginAsCustomerUserControllerTest</runTest>
-            <runTest>PC_LoginControllerTest</runTest>
-            <runTest>PC_OpportunityEditFormControllerTest</runTest>
-            <runTest>PC_OpportunityEditFormHandlerTest</runTest>
-            <runTest>PC_RESTutilsTest</runTest>
-            <runTest>PC_SoapLoginControllerTest</runTest>
-            <runTest>PC_Table2ControllerTest</runTest>
-            <runTest>PC_TabsControllerTest</runTest>
-            <runTest>PC_TenfoldLoginHandlerTest</runTest>
-            <runTest>PC_UserUtilsTest</runTest>
-            <runTest>PC_UtilsTest</runTest>
-            <runTest>UserTriggerTest</runTest>
             <runTest>PC_PartnerSettingsControllerTest</runTest>
-            <runTest>PC_SFapiHandlerTest</runTest>
         </sf:deploy>
     </target>    
 </project>
