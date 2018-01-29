@@ -8,5 +8,10 @@ pipeline:
       - pwd
       - echo $${TESTKEY}
       - echo ${TESTKEY}
+      - mkdir migration_tool
+      - cd migration_tool
       - wget https://gs0.salesforce.com/dwnld/SfdcAnt/salesforce_ant_41.0.zip
+      - ls
+      - unzip salesforce_ant_41.0.zip
+      - ls
       # - ant compile jar run
