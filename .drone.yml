@@ -12,7 +12,7 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh
-      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
 
   rebuild-cache:
     image: drillster/drone-volume-cache
