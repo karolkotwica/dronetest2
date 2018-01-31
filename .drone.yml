@@ -1,4 +1,12 @@
 pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./migration_tool
+    volumes:
+      - /tmp/cache:/cache
+
   build:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
@@ -12,3 +20,11 @@ pipeline:
       #- cd ..
       #- pwd
       #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./migration_tool
+    volumes:
+      - /tmp/cache:/cache      
