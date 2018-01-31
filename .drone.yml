@@ -11,7 +11,7 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - "if [ -f ant-salesforce.jar ]; then
+      - sh -c "if [ -f ant-salesforce.jar ]; then
           'file exists!!!!'; 
         fi"
         
