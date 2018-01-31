@@ -11,10 +11,7 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - sh -c "if [ -f ant-salesforce.jar ]; then
-          'file exists!!!!'; 
-        fi"
-        
+      - if [ -f ant-salesforce.jar ]; then 'file exists!!!!'; fi        
       #- /bin/sh get_migration_tool_file.sh
       #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
 
