@@ -8,5 +8,9 @@ ls
 if [ -f ant-salesforce.jar ]; then
 	echo 'file exists!!!!';
 else
-	echo 'file not exists!!!!';
+    wget https://gs0.salesforce.com/dwnld/SfdcAnt/salesforce_ant_41.0.zip
+    unzip salesforce_ant_41.0.zip
+    pwd
+    cd ..
+	pwd
 fi
