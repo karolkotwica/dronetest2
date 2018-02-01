@@ -20,4 +20,8 @@ pipeline:
     mount:
       - ./migration_tool
     volumes:
-      - /tmp/cache:/cache      
+      - /tmp/cache:/cache
+
+  services:
+    testchrome:
+      image:    puppeteerchrome-linux
