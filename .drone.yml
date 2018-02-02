@@ -25,4 +25,4 @@ pipeline:
 
   services:
     testchrome:
-      image:  puppeteerchrome-linux
+      image:  localhost:5000/test-env:latest
