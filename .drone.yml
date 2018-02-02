@@ -25,4 +25,4 @@ pipeline:
 
   services:
     testchrome:
-      image:  localhost:5000/test-env:latest
+      image:  localhost:5000/test-env
