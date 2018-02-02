@@ -23,6 +23,6 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-  services:
-    testchrome:
-      image: lacucaracha/testenv:latest
+services:
+  testchrome:
+    image: lacucaracha/testenv:latest
