@@ -23,6 +23,12 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-services:
-  testchrome:
+  autotest:
     image: lacucaracha/testenv:latest
+    commands:
+      - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
+
+
+#services:
+#  testchrome:
+#    image: lacucaracha/testenv:latest
