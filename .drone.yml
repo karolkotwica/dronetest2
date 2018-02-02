@@ -32,6 +32,7 @@ pipeline:
       - ls
       - node -v
       - nodejs -v
+      - node -e "cat test.js"
 
 
 #services:
