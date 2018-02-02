@@ -25,4 +25,4 @@ pipeline:
 
   services:
     testchrome:
-      image:  lacucaracha/testenv
+      image: lacucaracha/testenv
