@@ -26,7 +26,8 @@ pipeline:
   autotest:
     image: lacucaracha/testenv:latest
     commands:
-      - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
+      # - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
+      - node -e "cat tests.js"
 
 
 #services:
