@@ -12,8 +12,8 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - /bin/sh start_automated_tests.sh
+      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      #- /bin/sh start_automated_tests.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -22,3 +22,7 @@ pipeline:
       - ./migration_tool
     volumes:
       - /tmp/cache:/cache
+
+  services:
+    testchrome:
+      image:  puppeteerchrome-linux
