@@ -24,7 +24,7 @@ pipeline:
       - /tmp/cache:/cache
 
   puppeteer-chrome:
-    image: lacucaracha/testenv:latest
+    image: puppeteer-chrome-linux
     commands:
       # - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
       # - node -e "cat tests.js"
@@ -32,8 +32,9 @@ pipeline:
       - ls
       - node -v
       - nodejs -v
-      - ldd chrome | grep not
-      # - node tests.js
+      #- ldd chrome | grep not
+      #- node_modules/puppeteer/.local-chromium
+      - node tests.js
 
 
 #services:
