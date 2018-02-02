@@ -23,7 +23,7 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-  autotest:
+  puppeteer-chrome:
     image: lacucaracha/testenv:latest
     commands:
       # - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
@@ -32,7 +32,8 @@ pipeline:
       - ls
       - node -v
       - nodejs -v
-      - node tests.js
+      - ldd chrome | grep not
+      # - node tests.js
 
 
 #services:
