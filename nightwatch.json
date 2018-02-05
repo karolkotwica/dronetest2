@@ -20,7 +20,7 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://selenium",
+      "launch_url" : "http://selenium:4444/wd/hub",
       "selenium_port"  : 4444,
       "selenium_host"  : "selenium",
       "silent": true,
