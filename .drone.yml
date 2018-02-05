@@ -11,8 +11,8 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - /bin/sh get_migration_tool_file.sh
-      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      #- /bin/sh get_migration_tool_file.sh
+      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       #- /bin/sh start_automated_tests.sh
 
   rebuild-cache:
@@ -23,20 +23,24 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
-  puppeteer-chrome:
-    image: puppeteer-chrome-linux
-    commands:
+#  puppeteer-chrome:
+    # image: puppeteer-chrome-linux
+    # commands:
       # - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
       # - node -e "cat tests.js"
-      - pwd
-      - ls
-      - node -v
-      - nodejs -v
+      # - pwd
+      # - ls
+      # - node -v
+      # - nodejs -v
       #- ldd chrome | grep not
       #- node_modules/puppeteer/.local-chromium
-      - node tests.js
+      # - node tests.js
 
 
 #services:
 #  testchrome:
 #    image: lacucaracha/testenv:latest
+
+services:
+  selenium:
+    image: selenium/standalone-chrome
