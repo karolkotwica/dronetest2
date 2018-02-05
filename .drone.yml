@@ -27,7 +27,7 @@ pipeline:
   auto-tests:
     image: nightwatch2
     commands:
-      - nightwatch tests/one/firstTest.js
+      - nightwatch test.js
 
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux
