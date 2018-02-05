@@ -24,6 +24,11 @@ pipeline:
     volumes:
       - /tmp/cache:/cache
 
+  auto-tests:
+    image: nightwatch2
+    commands:
+      - nightwatch tests/one/firstTest.js
+
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux
     # commands:
