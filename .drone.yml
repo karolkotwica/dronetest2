@@ -27,7 +27,7 @@ pipeline:
   auto-tests:
     image: nightwatch2
     commands:
-      - nightwatch test.js
+      - nightwatch tests
 
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux
@@ -40,7 +40,7 @@ pipeline:
       # - nodejs -v
       #- ldd chrome | grep not
       #- node_modules/puppeteer/.local-chromium
-      - node tests
+      # - node tests
 
 #services:
 #  testchrome:
