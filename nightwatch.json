@@ -28,6 +28,10 @@
         "enabled" : false,
         "path" : ""
       },
+      "globals": {
+        "login" : "",
+        "pass" : ""
+      },
       "desiredCapabilities": {
         "browserName": "chrome",
         "marionette": true
