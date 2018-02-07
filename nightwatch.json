@@ -28,10 +28,7 @@
         "enabled" : false,
         "path" : ""
       },
-      "globals": {
-        "login" : "",
-        "pass" : ""
-      },
+      "globals_path" : "globals.js",
       "desiredCapabilities": {
         "browserName": "chrome",
         "marionette": true

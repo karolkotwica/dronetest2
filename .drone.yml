@@ -27,7 +27,10 @@ pipeline:
   auto-tests:
     image: nightwatch2
     commands:
-      - nightwatch tests --env "default" --login="pinkpanther"
+      - SF_PASS="testlogin"
+      - SF_LOGIN="testpass"
+      - export SF_TEST="testexport"
+      - nightwatch tests
 
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux
