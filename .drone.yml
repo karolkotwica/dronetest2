@@ -27,11 +27,10 @@ pipeline:
   auto-tests:
     image: nightwatch2
     commands:
-      - SF_PASS="testlogin"
-      - SF_LOGIN="testpass"
+      - export SF_PASS="testlogin"
+      - export SF_LOGIN="testpass"
       - export SF_TEST="testexport"
-      - printenv
-      # - nightwatch tests
+      - nightwatch tests
 
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux

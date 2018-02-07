@@ -28,7 +28,7 @@
         "enabled" : false,
         "path" : ""
       },
-      "globals_path" : "globals.js",
+      "globals_path" : "./tests/globals.js",
       "desiredCapabilities": {
         "browserName": "chrome",
         "marionette": true
