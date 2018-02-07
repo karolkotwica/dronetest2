@@ -30,7 +30,8 @@ pipeline:
       - SF_PASS="testlogin"
       - SF_LOGIN="testpass"
       - export SF_TEST="testexport"
-      - nightwatch tests
+      - printenv
+      # - nightwatch tests
 
 #  puppeteer-chrome:
     # image: puppeteer-chrome-linux
