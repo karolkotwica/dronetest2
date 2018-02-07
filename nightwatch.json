@@ -28,7 +28,11 @@
         "enabled" : false,
         "path" : ""
       },
-      "globals_path" : "./tests/globals.js",
+      "globals" : {
+          "test1" : process.env.SF_PASS,
+          "test2" : process.env.SF_LOGIN,
+          "test3" : process.env.SF_TEST
+      },
       "desiredCapabilities": {
         "browserName": "chrome",
         "marionette": true
