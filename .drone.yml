@@ -27,8 +27,8 @@ pipeline:
   auto-tests:
     image: nightwatch2
     commands:
-      - export SF_PASS="testlogin"
-      - export SF_LOGIN="testpass"
+      - export SF_PASS=$${SFUSERNAME}
+      - export SF_LOGIN=$${SFPASS}
       - export SF_TEST="testexport"
       - nightwatch tests
 
