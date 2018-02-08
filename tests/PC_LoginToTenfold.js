@@ -5,7 +5,7 @@ module.exports = {
         process.exit(1);
       }
       client
-        .url('https://test.salesforce.com/')
+        .url('https://int-tenfoldint.cs90.force.com/s/')
         .waitForElementPresent("#username", 60000)
         .assert.visible("#username")
         .assert.visible("#password")
