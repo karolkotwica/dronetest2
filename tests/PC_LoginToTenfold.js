@@ -17,7 +17,7 @@ module.exports = {
         .click("//input[@value='LOG IN']").pause(20000)
         .source(function (result){
             console.log(result.value);
-        }
+        })
         .waitForElementPresent("//input[@value='AUTHORIZE']", 60000)
         .assert.visible("//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(15000)
