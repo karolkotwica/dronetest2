@@ -26,10 +26,12 @@ pipeline:
 
   auto-tests:
     image: nightwatch2
+    secrets: [ sfusername, sfpass ]
     commands:
       - echo ${SFUSERNAME}
-      - echo $${SFUSERNAME}
-      - export SF_PASS=${SFUSERNAME}
+      - echo $${SFUSERNAME}      
+      - export SF_PASSS1="${SFUSERNAME}"
+      - export SF_PASSS2="$${SFUSERNAME}"      
       - export SF_LOGIN=${SFPASS}
       - export SF_TEST="testexport"
       - export SF_PASS2=$${SFUSERNAME}
