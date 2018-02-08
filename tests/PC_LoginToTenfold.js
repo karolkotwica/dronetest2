@@ -4,6 +4,7 @@ module.exports = {
         console.log('username or password is null');
         process.exit(1);
       }
+
       client
         .url('https://int-tenfoldint.cs90.force.com/s/')
         .waitForElementPresent("#username", 60000)
@@ -12,16 +13,18 @@ module.exports = {
         .setValue('#username',client.globals.username).pause(200)
         .setValue('#password',client.globals.pass).pause(200)
 
-        client.useXpath()
+      client.useXpath()
         .assert.visible("//input[@value='LOG IN']")
         .click("//input[@value='LOG IN']").pause(2000)
 
-        client.useXpath()
-        .waitForElementPresent("//input[@value='AUTHORIZE']", 60000)
+      client.useXpath()
+        .source(function (result){
+            console.log(result.value);
+        })
+        .waitForElementPresent("//input[@value='AUTHORIZE']", 60000)        
         .assert.visible("//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(15000)
         .assert.visible("//div[@class='cProfileMenu slds-m-left--x-small']");
-
     }
   };
   
