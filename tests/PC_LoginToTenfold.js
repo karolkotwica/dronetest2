@@ -12,6 +12,9 @@ module.exports = {
         .setValue('#username',client.globals.username).pause(200)
         .setValue('#password',client.globals.pass).pause(200);
 
+        console.log(result.client.globals.username);
+        console.log(result.client.globals.pass);
+
         client.useXpath()
         .assert.visible("//input[@value='LOG IN']")
         .click("//input[@value='LOG IN']").pause(60000)
