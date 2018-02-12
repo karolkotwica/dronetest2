@@ -10,13 +10,18 @@ module.exports = {
         .assert.visible("#username")
         .assert.visible("#password")
         .setValue('#username',client.globals.username).pause(200)
-        .setValue('#password',client.globals.pass).pause(200)
+        .setValue('#password',client.globals.pass).pause(200);
+
+        client.useXpath()
+        .source(function (result){
+            console.log(result.value);
+        });
 
         client.useXpath()
         .assert.visible("//input[@value='LOG IN']")
-        .click("//input[@value='LOG IN']").pause(200)
+        .click("//input[@value='LOG IN']").pause(60000)
         .assert.visible("//input[@value='AUTHORIZE']")
-        .click("//input[@value='AUTHORIZE']").pause(15000)
+        .click("//input[@value='AUTHORIZE']").pause(60000)
         .assert.visible("//div[@class='cProfileMenu slds-m-left--x-small']");
     }
   };
