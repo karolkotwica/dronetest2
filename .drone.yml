@@ -26,10 +26,10 @@ pipeline:
 
   auto-tests:
     image: nightwatch2
-    secrets: [ sfusername, sfpass ]
+    secrets: [ dashusername, dashpass ]
     commands:      
-      - export SF_LOGIN=$${SFUSERNAME}
-      - export SF_PASS=$${SFPASS}
+      - export DASH_LOGIN=$${DASHUSERNAME}
+      - export DASH_PASS=$${DASHPASS}
       - nightwatch tests
 
 #  puppeteer-chrome:
