@@ -15,9 +15,6 @@ module.exports = {
         client.useXpath()
         .assert.visible("//input[@value='LOG IN']")
         .click("//input[@value='LOG IN']").pause(60000)
-        .source(function (result){
-            console.log(result.value);
-        })
         .assert.visible("//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(60000)
         .assert.visible("//div[@class='cProfileMenu slds-m-left--x-small']");
