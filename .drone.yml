@@ -11,10 +11,9 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      #- /bin/sh get_migration_tool_file.sh
-      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      #- /bin/sh start_automated_tests.sh
-      - ls
+      - /bin/sh get_migration_tool_file.sh
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - /bin/sh start_automated_tests.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -31,23 +30,6 @@ pipeline:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
       - nightwatch tests
-
-#  puppeteer-chrome:
-    # image: puppeteer-chrome-linux
-    # commands:
-      # - docker run -i --rm --cap-add=SYS_ADMIN --name puppeteer-chrome testenv
-      # - node -e "cat tests.js"
-      # - pwd
-      # - ls
-      # - node -v
-      # - nodejs -v
-      #- ldd chrome | grep not
-      #- node_modules/puppeteer/.local-chromium
-      # - node tests
-
-#services:
-#  testchrome:
-#    image: lacucaracha/testenv:latest
 
 services:
   selenium:

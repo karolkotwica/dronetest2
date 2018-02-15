@@ -14,9 +14,9 @@ module.exports = {
 
         client.useXpath()
         .assert.visible("//input[@value='LOG IN']")
-        .click("//input[@value='LOG IN']").pause(60000)
+        .click("//input[@value='LOG IN']").pause(200)
         .assert.visible("//input[@value='AUTHORIZE']")
-        .click("//input[@value='AUTHORIZE']").pause(60000)
+        .click("//input[@value='AUTHORIZE']").pause(15000)
         .assert.visible("//div[@class='cProfileMenu slds-m-left--x-small']");
     }
   };
