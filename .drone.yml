@@ -2,8 +2,9 @@ pipeline:
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
-    username: $${MAILLOGIN}
-    password: $${MAILPASS}
+    skip_verify: true
+    username: ${MAILLOGIN}
+    password: ${MAILPASS}
     from: buildserwer@droneio.com
     recipients: [ droneemailtest@gmail.com ]
     subject: drone build failed
