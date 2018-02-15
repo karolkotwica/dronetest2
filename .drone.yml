@@ -1,4 +1,16 @@
 pipeline:
+  notify:
+    image: drillster/drone-email
+    host: smtp.gmail.com
+    username: $${MAILLOGIN}
+    password: $${MAILPASS}
+    from: buildserwer@droneio
+    recipients: [ $${RECIPENT1} ]
+    subject: drone build failed
+    body: Building repository repo.name failed
+    when:
+      status: [ failure ]
+
   restore-cache:
     image: drillster/drone-volume-cache
     restore: true
