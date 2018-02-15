@@ -8,7 +8,6 @@ pipeline:
       - droneemailtest@gmail.com
     secrets: [ email_username, email_password ]
     subject: drone build failed
-    body: test msg
     when:
       status: [ changed, failure ]
 
