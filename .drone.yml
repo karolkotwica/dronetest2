@@ -17,7 +17,7 @@ pipeline:
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
-    #from: buildserver@droneioio.com
+    from: buildserverdroneio@example.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
