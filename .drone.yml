@@ -43,9 +43,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git commit -m "test commit from drone [CI SKIP]"
-      - git remote
-      - git branch
-      # - git push origin master
+      - git push origin master
 
   rebuild-cache:
     image: drillster/drone-volume-cache
