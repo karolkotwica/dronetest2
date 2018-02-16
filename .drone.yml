@@ -32,13 +32,18 @@ pipeline:
     secrets: [ email_username ]
     commands:
       - git status
+      - ls
       - mkdir a
       - cd a
       - wget https://test.salesforce.com/img/logo198.png
       - cd ..
       - git add a/logo198.png
       - git status
-      - git config user.email "$${DASHUSERNAME}"
+      - git config user.email $${DASHUSERNAME}
+      - git config user.email
+      - git config user.email ${DASHUSERNAME}
+      - git config user.email
+      - git config user.email "avc"
       - git config user.email
       #- git commit -m "test commit from drone [CI SKIP]"
 
