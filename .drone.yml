@@ -4,9 +4,9 @@ pipeline:
     host: smtp.gmail.com
     from: buildserwer@droneio.com
     username: $EMAIL_PASSWORD
-    password: $EMAIL_USERNAME  
+    password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
-    subject: drone build failed
+    subject: drone build realy failed
     secrets: [ email_username, email_password, email_recipients ]
     when:
       status: [ failure ]
