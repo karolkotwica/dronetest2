@@ -34,6 +34,7 @@ pipeline:
       - mkdir a
       - cd a
       - wget https://test.salesforce.com/img/logo198.png
+      - cd ..
       - git add a/logo198.png
       - git status
       # - git commmit -m "test commit from drone[CI SKIP]"
