@@ -28,6 +28,7 @@ pipeline:
       status: failure
 
   get-and-save-profiles:
+    image: docker:git
     commands:
       - git status
 
