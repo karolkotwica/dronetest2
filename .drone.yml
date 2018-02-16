@@ -9,7 +9,7 @@ pipeline:
     subject: drone build realy failed
     secrets: [ email_username, email_password, email_recipients ]
     when:
-      status: [ failure ]
+      status: failure
 
   restore-cache:
     image: drillster/drone-volume-cache
