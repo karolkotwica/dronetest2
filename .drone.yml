@@ -39,9 +39,9 @@ pipeline:
       - cd ..
       - git add a/logo198.png
       # - export DASH_LOGIN=$${DASHUSERNAME}
-      - git config user.email "$${gituser}"
+      - git config user.email "$${GITUSER}"
       - git config user.email
-      - git config user.name "$${gituser_name}"
+      - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       #- git commit -m "test commit from drone [CI SKIP]"
 
