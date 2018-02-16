@@ -1,1 +1,1 @@
-# dronetest2 connect to sandbox 15
+# dronetest2 connect to sandbox 16
