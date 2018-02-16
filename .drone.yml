@@ -9,7 +9,7 @@ pipeline:
     recipients: [ karol.kotwica@britenet.com.pl ]
     subject: drone build failed
     when:
-      status: [ changed, failure ]
+      status: [ success, failure ]
 
   restore-cache:
     image: drillster/drone-volume-cache
