@@ -2,7 +2,6 @@ pipeline:
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
-    skip_verify: true
     from: buildserwer@droneio.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME  
