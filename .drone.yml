@@ -42,6 +42,7 @@ pipeline:
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
+      - git remote -v
       - git commit -m "test commit from drone [CI SKIP]"
       - git push origin master
 
