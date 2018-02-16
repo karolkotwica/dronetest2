@@ -29,7 +29,7 @@ pipeline:
 
   get-and-save-profiles:
     image: docker:git
-    secrets: [ email_username ]
+    secrets: [ gituser, gituser_name ]
     commands:
       - git status
       - ls
@@ -39,12 +39,10 @@ pipeline:
       - cd ..
       - git add a/logo198.png
       # - export DASH_LOGIN=$${DASHUSERNAME}
-      - git config user.email "$${EMAIL_USERNAME}"
+      - git config user.email "$${gituser}"
       - git config user.email
-      - git config user.email "${EMAIL_USERNAME}""
-      - git config user.email
-      - git config user.email "avc"
-      - git config user.email
+      - git config user.name "$${gituser_name}"
+      - git config user.name
       #- git commit -m "test commit from drone [CI SKIP]"
 
   rebuild-cache:
