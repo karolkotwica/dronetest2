@@ -2,14 +2,14 @@ pipeline:
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
-    # skip_verify: true
+    skip_verify: true
     from: buildserwer@droneio.com
     username: droneemailtest@gmail.com
     password: zugBLP6csurhQcwK13v6  
     recipients: [ karol.kotwica@britenet.com.pl ]
     subject: drone build failed
     when:
-      status: [ success, failure ]
+      status: [ failure ]
 
   restore-cache:
     image: drillster/drone-volume-cache
