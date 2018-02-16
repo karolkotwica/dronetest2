@@ -9,7 +9,7 @@ pipeline:
     subject: drone build failed
     secrets: [ email_username, email_password, email_recipients ]
     when:
-      status: [ success, failure ]
+      status: [ failure ]
 
   restore-cache:
     image: drillster/drone-volume-cache
@@ -23,9 +23,8 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      #- /bin/sh get_migration_tool_file.sh
-      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - ls
+      - /bin/sh get_migration_tool_file.sh
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -38,11 +37,10 @@ pipeline:
   auto-tests:
     image: nightwatch2
     secrets: [ dashusername, dashpass ]
-    commands:      
+    commands:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
-      #- nightwatch tests
-      - ls
+      - nightwatch tests
 
 services:
   selenium:
