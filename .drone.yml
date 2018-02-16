@@ -4,9 +4,9 @@ pipeline:
     host: smtp.gmail.com
     skip_verify: true
     from: buildserwer@droneio.com
-    recipients:
-      - droneemailtest@gmail.com
-    secrets: [ email_username, email_password ]
+    username: droneemailtest@gmail.com
+    password: zugBLP6csurhQcwK13v6  
+    recipients: [ droneemailtest@gmail.com ]
     subject: drone build failed
     when:
       status: [ changed, failure ]
