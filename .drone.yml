@@ -29,6 +29,7 @@ pipeline:
 
   get-and-save-profiles:
     image: docker:git
+    secrets: [ email_username ]
     commands:
       - git status
       - mkdir a
@@ -37,7 +38,9 @@ pipeline:
       - cd ..
       - git add a/logo198.png
       - git status
-      - git commit -m "test commit from drone [CI SKIP]"
+      - git config user.email "${DASHUSERNAME}"
+      - git config user.email
+      #- git commit -m "test commit from drone [CI SKIP]"
 
   rebuild-cache:
     image: drillster/drone-volume-cache
