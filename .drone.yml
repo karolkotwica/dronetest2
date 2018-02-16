@@ -1,4 +1,12 @@
 pipeline:
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./migration_tool
+    volumes:
+      - /tmp/cache:/cache
+
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
@@ -9,15 +17,7 @@ pipeline:
     subject: drone build realy failed
     secrets: [ email_username, email_password, email_recipients ]
     when:
-      status: success
-
-  restore-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - ./migration_tool
-    volumes:
-      - /tmp/cache:/cache
+      status: failure
 
   build:
     image: frekele/ant
@@ -25,6 +25,18 @@ pipeline:
     commands:
       - /bin/sh get_migration_tool_file.sh
       - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+
+  notifyy:
+    image: drillster/drone-email
+    host: smtp.gmail.com
+    from: buildserwer@droneio.com
+    username: $EMAIL_PASSWORD
+    password: $EMAIL_USERNAME
+    recipients: $EMAIL_RECIPIENTS
+    subject: drone build realy failed
+    secrets: [ email_username, email_password, email_recipients ]
+    when:
+      status: failure      
 
   rebuild-cache:
     image: drillster/drone-volume-cache
