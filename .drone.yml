@@ -38,7 +38,7 @@ pipeline:
       - cd ..
       - git add a/logo198.png
       - git status
-      - git config user.email "${DASHUSERNAME}"
+      - git config user.email "$${DASHUSERNAME}"
       - git config user.email
       #- git commit -m "test commit from drone [CI SKIP]"
 
