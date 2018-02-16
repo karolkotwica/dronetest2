@@ -40,7 +40,7 @@ pipeline:
     commands:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
-      - nightwatch tests2
+      - nightwatch tests
 
   notify-when-e2e-tests-error:
     image: drillster/drone-email
