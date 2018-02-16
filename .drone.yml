@@ -30,7 +30,13 @@ pipeline:
   get-and-save-profiles:
     image: docker:git
     commands:
-      - git log
+      - git status
+      - mkdir a
+      - cd a
+      - wget https://test.salesforce.com/img/logo198.png
+      - git add a/logo198.png
+      - git status
+      # - git commmit -m "test commit from drone[CI SKIP]"
 
   rebuild-cache:
     image: drillster/drone-volume-cache
