@@ -37,7 +37,7 @@ pipeline:
       - cd ..
       - git add a/logo198.png
       - git status
-      - git commmit -m "test commit from drone [CI SKIP]"
+      - git commit -m "test commit from drone [CI SKIP]"
 
   rebuild-cache:
     image: drillster/drone-volume-cache
