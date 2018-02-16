@@ -30,7 +30,7 @@ pipeline:
   get-and-save-profiles:
     image: docker:git
     commands:
-      - git status
+      - git log
 
   rebuild-cache:
     image: drillster/drone-volume-cache
