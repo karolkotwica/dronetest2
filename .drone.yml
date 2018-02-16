@@ -14,14 +14,14 @@ pipeline:
       - /bin/sh get_migration_tool_file.sh
       - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
 
-  notify:
+  notify-when-validation-error:
     image: drillster/drone-email
     host: smtp.gmail.com
     from: buildserverdroneio@example.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
-    subject: drone build realy failed
+    subject: Validation process failed
     secrets: [ email_username, email_password, email_recipients ]
     when:
       status: failure
@@ -40,7 +40,19 @@ pipeline:
     commands:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
-      - nightwatch tests
+      - nightwatch tests2
+
+  notify-when-e2e-tests-error:
+    image: drillster/drone-email
+    host: smtp.gmail.com
+    from: buildserverdroneio@example.com
+    username: $EMAIL_PASSWORD
+    password: $EMAIL_USERNAME
+    recipients: $EMAIL_RECIPIENTS
+    subject: E2E testing failed
+    secrets: [ email_username, email_password, email_recipients ]
+    when:
+      status: failure      
 
 services:
   selenium:
