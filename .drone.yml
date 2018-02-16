@@ -6,9 +6,9 @@ pipeline:
     from: buildserwer@droneio.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME  
-    recipients: [ karol.kotwica@britenet.com.pl ]
+    recipients: $EMAIL_RECIPIENTS
     subject: drone build failed
-    secrets: [ email_username, email_password ]
+    secrets: [ email_username, email_password, email_recipients ]
     when:
       status: [ success, failure ]
 
