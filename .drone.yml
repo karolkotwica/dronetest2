@@ -38,10 +38,10 @@ pipeline:
       - wget https://test.salesforce.com/img/logo198.png
       - cd ..
       - git add a/logo198.png
-      - git status
-      - git config user.email $${DASHUSERNAME}
+      # - export DASH_LOGIN=$${DASHUSERNAME}
+      - git config user.email "$${EMAIL_USERNAME}"
       - git config user.email
-      - git config user.email ${DASHUSERNAME}
+      - git config user.email "${EMAIL_USERNAME}""
       - git config user.email
       - git config user.email "avc"
       - git config user.email
