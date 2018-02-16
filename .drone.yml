@@ -2,11 +2,11 @@ pipeline:
   notify:
     image: drillster/drone-email
     host: smtp.gmail.com
-    skip_verify: true
+    # skip_verify: true
     from: buildserwer@droneio.com
     username: droneemailtest@gmail.com
     password: zugBLP6csurhQcwK13v6  
-    recipients: [ droneemailtest@gmail.com ]
+    recipients: [ karol.kotwica@britenet.com.pl ]
     subject: drone build failed
     when:
       status: [ changed, failure ]
@@ -23,8 +23,9 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - /bin/sh get_migration_tool_file.sh
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      #- /bin/sh get_migration_tool_file.sh
+      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - ls
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -40,7 +41,8 @@ pipeline:
     commands:      
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
-      - nightwatch tests
+      #- nightwatch tests
+      - ls
 
 services:
   selenium:
