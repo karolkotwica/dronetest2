@@ -48,7 +48,7 @@ pipeline:
     image: docker:git
     secrets: [ gituser, gituser_name, githubtoken ]
     commands:
-      - git status
+      - git status --porcelain
       - git config user.email "$${GITUSER}"
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
@@ -57,7 +57,7 @@ pipeline:
       - ls
       - git remote -v
       - git add profiles/*
-      - git status
+      - git status --porcelain
       - git commit -m "test commit from drone [CI SKIP]"
       - git log
       - git push origin master
