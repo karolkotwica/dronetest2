@@ -1,11 +1,11 @@
 pipeline:
-  #restore-cache:
-  #  image: drillster/drone-volume-cache
-  #  restore: true
-  #  mount:
-  #    - ./migration_tool
-  #  volumes:
-  #    - /tmp/cache:/cache
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./migration_tool
+    volumes:
+      - /tmp/cache:/cache
 
   build:
     image: frekele/ant
@@ -55,24 +55,20 @@ pipeline:
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - ls
-      # - cd profile_migration
-      # - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      # - cd ..      
-      # - git add clonedrepo/logo198.png
       - git remote -v
       - git add profiles/*
       - git status
       - git commit -m "test commit from drone [CI SKIP]"
       - git log
-      #- git push origin master
+      - git push origin master
 
-#  rebuild-cache:
-#    image: drillster/drone-volume-cache
-#    rebuild: true
-#    mount:
-#      - ./migration_tool
-#    volumes:
-#      - /tmp/cache:/cache
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./migration_tool
+    volumes:
+      - /tmp/cache:/cache
 
   auto-tests:
     image: nightwatch2
