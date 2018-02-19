@@ -1,0 +1,19 @@
+<project name="BriteCRM deployments" default="retrieveProfileFromInt" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property file="build.properties"/>
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="ant-salesforce.jar"/>
+        </classpath>
+    </taskdef>
+
+    <!-- INT -->
+    <target name="retrieveProfileFromInt">
+        <sf:retrieve
+                username="${username}"
+                password="${password}"
+                serverurl="${general.url.sandbox}"
+                retrieveTarget="."
+                unpackaged="package.xml"/>
+        </sf:retrieve>
+    </target>    
+</project>

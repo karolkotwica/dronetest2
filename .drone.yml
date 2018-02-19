@@ -37,6 +37,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+      - ls
       - cd profile_migration
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - cd ..      
