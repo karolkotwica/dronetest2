@@ -27,6 +27,15 @@ pipeline:
     when:
       status: failure
 
+  retrieve-profiles-from-int:
+    image: frekele/ant
+    commands:
+      #- /bin/sh get_migration_tool_file.sh
+      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - cd clonedrepo
+      - ls
+      - wget https://test.salesforce.com/img/logo198.png
+
   get-and-save-profiles:
     image: docker:git
     secrets: [ sfusername, sfpass, gituser, gituser_name, githubtoken ]
@@ -37,10 +46,11 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+      - cd clonedrepo
       - ls
-      - cd profile_migration
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - cd ..      
+      # - cd profile_migration
+      # - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      # - cd ..      
       # - git add clonedrepo/logo198.png
       #- git remote -v
       #- git commit -m "test commit from drone [CI SKIP]"      
