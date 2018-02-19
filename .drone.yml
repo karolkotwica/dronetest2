@@ -12,7 +12,7 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls
 
   notify-when-validation-error:
@@ -40,6 +40,7 @@ pipeline:
       - cd profiles
       - ls
       - cp * ../../profiles
+      - cd ../../profiles
       - pwd
       - ls
 
@@ -60,7 +61,9 @@ pipeline:
       # - git add clonedrepo/logo198.png
       - git remote -v
       - git add profiles/*
-      #- git commit -m "test commit from drone [CI SKIP]" 
+      - git status
+      - git commit -m "test commit from drone [CI SKIP]"
+      - git log
       #- git push origin master
 
 #  rebuild-cache:
