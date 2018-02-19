@@ -40,7 +40,7 @@ pipeline:
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name      
-      - git config remote.origin.url https://karolkotwica:${GITHUBTOKEN}d@github.com/karolkotwica/dronetest2.git
+      - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - wget https://test.salesforce.com/img/logo198.png
       - git add logo198.png
       # - cd ..
