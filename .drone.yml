@@ -35,7 +35,7 @@ pipeline:
       - ls
       - mkdir clonedrepo
       - cd clonedrepo
-      - git clone https://karolkotwica:<${GITHUBTOKEN}>@github.com/karolkotwica/dronetest2.git
+      - git clone https://${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       #- git clone https://github.com/username/repo.git
       # - wget https://test.salesforce.com/img/logo198.png
       # - cd ..
