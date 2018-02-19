@@ -11,8 +11,8 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      #- /bin/sh get_migration_tool_file.sh
-      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - /bin/sh get_migration_tool_file.sh
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls
 
   notify-when-validation-error:
