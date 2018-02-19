@@ -31,10 +31,10 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - cd profile_migration
-      - ls      
+      - cd profile_migration           
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - cd classes
+      - ls 
+      - cd profiles
       - ls
 
   get-and-save-profiles:
