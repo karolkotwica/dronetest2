@@ -29,7 +29,7 @@ pipeline:
 
   get-and-save-profiles:
     image: docker:git
-    secrets: [ gituser, gituser_name ]
+    secrets: [ gituser, gituser_name, githubtoken ]
     commands:
       - git status
       - ls
