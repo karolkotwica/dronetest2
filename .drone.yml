@@ -35,7 +35,11 @@ pipeline:
       - ls
       - mkdir clonedrepo
       - cd clonedrepo
-      - git clone https://${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git      
+      - git clone https://${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+      - git config user.email "$${GITUSER}"
+      - git config user.email
+      - git config user.name "$${GITUSER_NAME}"
+      - git config user.name      
       - wget https://test.salesforce.com/img/logo198.png
       - git add logo198.png
       # - cd ..
