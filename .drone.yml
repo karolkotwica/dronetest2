@@ -29,25 +29,25 @@ pipeline:
 
   retrieve-profiles-from-int:
     image: frekele/ant
+    secrets: [ sfusername, sfpass ]
     commands:
-      #- /bin/sh get_migration_tool_file.sh
-      #- ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - cd clonedrepo
+      - cd profile_migration
+      - ls      
+      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls
-      - wget https://test.salesforce.com/img/logo198.png
 
   get-and-save-profiles:
     image: docker:git
-    secrets: [ sfusername, sfpass, gituser, gituser_name, githubtoken ]
+    secrets: [ gituser, gituser_name, githubtoken ]
     commands:
       - git status
-      - git config user.email "$${GITUSER}"
-      - git config user.email
-      - git config user.name "$${GITUSER_NAME}"
-      - git config user.name
-      - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      - cd clonedrepo
-      - ls
+#      - git config user.email "$${GITUSER}"
+ #     - git config user.email
+  #    - git config user.name "$${GITUSER_NAME}"
+   #   - git config user.name
+    #  - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+    #  - cd clonedrepo
+    #  - ls
       # - cd profile_migration
       # - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       # - cd ..      
