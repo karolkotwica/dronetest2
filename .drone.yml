@@ -31,10 +31,16 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - cd profile_migration           
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - ls 
       - cd profiles
+      - rm -f *
+      - cd ../profile_migration
+      - pwd
+      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - ls
+      - cd profiles
+      - ls
+      - cp * ../../profiles
+      - pwd
       - ls
 
   get-and-save-profiles:
@@ -42,13 +48,13 @@ pipeline:
     secrets: [ gituser, gituser_name, githubtoken ]
     commands:
       - git status
-#      - git config user.email "$${GITUSER}"
- #     - git config user.email
-  #    - git config user.name "$${GITUSER_NAME}"
-   #   - git config user.name
-    #  - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-    #  - cd clonedrepo
-    #  - ls
+      - git config user.email "$${GITUSER}"
+      - git config user.email
+      - git config user.name "$${GITUSER_NAME}"
+      - git config user.name
+      - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+      - cd clonedrepo
+      - ls
       # - cd profile_migration
       # - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       # - cd ..      
