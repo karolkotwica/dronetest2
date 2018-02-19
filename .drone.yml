@@ -39,7 +39,6 @@ pipeline:
       #- git clone https://github.com/username/repo.git
       # - wget https://test.salesforce.com/img/logo198.png
       # - cd ..
-      = 
       #- git add clonedrepo/logo198.png
       #- git config user.email "$${GITUSER}"
       #- git config user.email
