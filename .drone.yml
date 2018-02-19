@@ -36,8 +36,8 @@ pipeline:
       - cd ../profile_migration
       - pwd
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - ls
-      - cat package.xml      
+      - ls      
+      - cat package.xml
       - cd profiles
       - ls
       - cp * ../../profiles
@@ -49,24 +49,22 @@ pipeline:
     image: docker:git
     secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
     commands:
-      - mkdir testy
-      - cd testy
-      - git clone https://$${GITHUBTOKEN2}:x-oauth-basic@github.com/tenfold/salesforce-partner-portal-application.git
-      - cd salesforce-partner-portal-application
+      - cd profile_migration
+      - cat package.xml
+      - cd ..
+      - git status --porcelain
+      - git config user.email "$${GITUSER}"
+      - git config user.email
+      - git config user.name "$${GITUSER_NAME}"
+      - git config user.name
+      - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - ls
-      #- git status --porcelain
-      #- git config user.email "$${GITUSER}"
-      #- git config user.email
-      #- git config user.name "$${GITUSER_NAME}"
-      #- git config user.name
-      #- git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      #- ls
-      #- git remote -v
-      #- git add profiles/*
-      #- git status --porcelain
-      #- git commit -m "test commit from drone [CI SKIP]"
-      #- git log
-      #- git push origin master
+      - git remote -v
+      - git add profiles/*
+      - git status --porcelain
+      - git commit -m "test commit from drone [CI SKIP]"
+      - git log
+      # - git push origin master
 
   rebuild-cache:
     image: drillster/drone-volume-cache
