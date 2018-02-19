@@ -53,14 +53,14 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      - cd clonedrepo
       - ls
       # - cd profile_migration
       # - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       # - cd ..      
       # - git add clonedrepo/logo198.png
-      #- git remote -v
-      #- git commit -m "test commit from drone [CI SKIP]"      
+      - git remote -v
+      - git add profiles/*
+      #- git commit -m "test commit from drone [CI SKIP]" 
       #- git push origin master
 
 #  rebuild-cache:
