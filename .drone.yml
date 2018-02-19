@@ -47,7 +47,7 @@ pipeline:
 
   get-and-save-profiles:
     image: docker:git
-    secrets: [ gituser, gituser_name, githubtoken ]    
+    secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
     commands:
       - mkdir testy
       - cd testy
