@@ -51,7 +51,7 @@ pipeline:
     commands:
       - mkdir testy
       - cd testy
-      - git clone https://$${GITHUBTOKEN2}:x-oauth-basic@github.com/owner/repo.git
+      - git clone https://$${GITHUBTOKEN2}:x-oauth-basic@github.com/tenfold/salesforce-partner-portal-application.git
       #- git status --porcelain
       #- git config user.email "$${GITUSER}"
       #- git config user.email
