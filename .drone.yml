@@ -29,24 +29,21 @@ pipeline:
 
   get-and-save-profiles:
     image: docker:git
-    secrets: [ gituser, gituser_name, githubtoken ]
+    secrets: [ sfusername, sfpass, gituser, gituser_name, githubtoken ]
     commands:
       - git status
-      - ls
-      - mkdir clonedrepo
-      - cd clonedrepo
-      - wget https://test.salesforce.com/img/logo198.png
-      - cd ..
       - git config user.email "$${GITUSER}"
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      - wget https://test.salesforce.com/img/logo198.png
-      - git add clonedrepo/logo198.png
-      - git remote -v
-      - git commit -m "test commit from drone [CI SKIP]"      
-      - git push origin master
+      - cd profile_migration
+      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - cd ..      
+      # - git add clonedrepo/logo198.png
+      #- git remote -v
+      #- git commit -m "test commit from drone [CI SKIP]"      
+      #- git push origin master
 
 #  rebuild-cache:
 #    image: drillster/drone-volume-cache
