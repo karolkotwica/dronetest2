@@ -33,18 +33,21 @@ pipeline:
     commands:
       - git status
       - ls
-      - mkdir a
-      - cd a
-      - wget https://test.salesforce.com/img/logo198.png
-      - cd ..
-      - git add a/logo198.png
-      - git config user.email "$${GITUSER}"
-      - git config user.email
-      - git config user.name "$${GITUSER_NAME}"
-      - git config user.name
-      - git remote -v
-      - git commit -m "test commit from drone [CI SKIP]"
-      - git push origin master
+      - mkdir clonedrepo
+      - cd clonedrepo
+      - git clone https://karolkotwica:<${GITHUBTOKEN}>@github.com/karolkotwica/dronetest2.git
+      #- git clone https://github.com/username/repo.git
+      # - wget https://test.salesforce.com/img/logo198.png
+      # - cd ..
+      = 
+      #- git add clonedrepo/logo198.png
+      #- git config user.email "$${GITUSER}"
+      #- git config user.email
+      #- git config user.name "$${GITUSER_NAME}"
+      #- git config user.name
+      #- git remote -v
+      #- git commit -m "test commit from drone [CI SKIP]"      
+      #- git push origin master
 
   rebuild-cache:
     image: drillster/drone-volume-cache
