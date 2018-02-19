@@ -1,11 +1,11 @@
 pipeline:
-  restore-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - ./migration_tool
-    volumes:
-      - /tmp/cache:/cache
+  #restore-cache:
+  #  image: drillster/drone-volume-cache
+  #  restore: true
+  #  mount:
+  #    - ./migration_tool
+  #  volumes:
+  #    - /tmp/cache:/cache
 
   build:
     image: frekele/ant
@@ -35,7 +35,7 @@ pipeline:
       - ls
       - mkdir clonedrepo
       - cd clonedrepo
-      - git clone https://${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
+      # git clone https://${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - git config user.email "$${GITUSER}"
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
@@ -52,16 +52,16 @@ pipeline:
       #- git config user.name "$${GITUSER_NAME}"
       #- git config user.name
       - git remote -v
-      - git commit -m "test commit from drone [CI SKIP]"      
-      - git push origin master
+      #- git commit -m "test commit from drone [CI SKIP]"      
+      #- git push origin master
 
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./migration_tool
-    volumes:
-      - /tmp/cache:/cache
+#  rebuild-cache:
+#    image: drillster/drone-volume-cache
+#    rebuild: true
+#    mount:
+#      - ./migration_tool
+#    volumes:
+#      - /tmp/cache:/cache
 
   auto-tests:
     image: nightwatch2
@@ -84,6 +84,6 @@ pipeline:
     when:
       status: failure      
 
-services:
-  selenium:
-    image: selenium/standalone-chrome
+#services:
+#  selenium:
+#    image: selenium/standalone-chrome
