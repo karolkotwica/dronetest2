@@ -34,7 +34,7 @@ pipeline:
     commands:
       - cd profiles
       - rm -f *
-      - cd ../profile_migration
+      - cd ../prof_backup
       - pwd
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls      
