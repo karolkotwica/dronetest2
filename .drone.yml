@@ -34,11 +34,13 @@ pipeline:
     commands:
       - cd profiles
       - rm -f *
+      - ls
       - cd ../prof_backup
       - pwd
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls      
       - cd profiles
+      - pwd
       - ls
       - cp * ../../profiles
       - cd ../../profiles
@@ -49,22 +51,14 @@ pipeline:
     image: docker:git
     secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
     commands:
+      - pwd
+      - ls
       - git config user.email "$${GITUSER}"
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      - echo '----------------------'
-      - git status --porcelain      
-      - echo '----------------------'
-      - git status --porcelain | grep -q "aaaa"
-      - echo '----------------------'
-      - git status --porcelain | grep -q "profiles"
-      - echo '----------------------'
-      - git add profiles/*
-      - git commit -m "backup of changed profiles [CI SKIP]"
-      - git push origin master
-      #- /bin/sh prof_backup.sh
+      - /bin/sh prof_backup.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
