@@ -11,8 +11,8 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - /bin/sh get_migration_tool_file.sh
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - /bin/sh get_migration_tool_file.sh |& tee -a output.txt
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} |& tee -a output.txt
 
   notify-when-validation-error:
     image: drillster/drone-email
@@ -37,7 +37,7 @@ pipeline:
       - ls
       - cd ../prof_backup
       - pwd
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} |& tee -a output.txt
       - ls      
       - cd profiles
       - pwd
@@ -58,7 +58,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
-      - /bin/sh prof_backup.sh
+      - /bin/sh prof_backup.sh |& tee -a output.txt
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -72,6 +72,7 @@ pipeline:
     image: nightwatch2
     secrets: [ dashusername, dashpass ]
     commands:
+      - cat output.txt      
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
       # - nightwatch tests
