@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if[ git status --porcelain | grep "profiles" ]; then
+if [ git status --porcelain | grep "profiles" ]; then
 	echo 'Profiles has changed';
 	# git add profiles/*
 	# git commit -m "test commit from drone [CI SKIP]"
