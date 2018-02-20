@@ -17,14 +17,15 @@ pipeline:
 
   notify-when-validation-error:
     image: drillster/drone-email
+    secrets: [ email_username, email_password, email_recipients ]
     host: smtp.gmail.com
     from: buildserverdroneio@example.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
     subject: Validation process failed
-    body: {{ build.link }}
-    secrets: [ email_username, email_password, email_recipients ]
+    body: >
+      {{ build.link }}    
     when:
       status: failure
 
