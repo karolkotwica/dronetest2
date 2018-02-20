@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if git status --porcelain | grep "profiles";
+if [ git status --porcelain | grep "profiles" ];
 then
 	echo 'inside 1'
 	git add profiles/*
