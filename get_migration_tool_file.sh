@@ -2,7 +2,7 @@
 
 mkdir -p migration_tool
 cd migration_tool
-ls 
+ls
 if [ -f ant-salesforce.jar ]; then
 	echo 'file exists!!!!';
 else
