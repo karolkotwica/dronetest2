@@ -53,10 +53,10 @@ pipeline:
     commands:
       - pwd
       - ls
-      - git config user.email "$${GITUSER}"
-      - git config user.email
-      - git config user.name "$${GITUSER_NAME}"
-      - git config user.name
+      #- git config user.email "$${GITUSER}"
+      #- git config user.email
+      #- git config user.name "$${GITUSER_NAME}"
+      #- git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - /bin/sh prof_backup.sh
 
