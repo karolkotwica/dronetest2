@@ -23,7 +23,7 @@ pipeline:
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
     subject: Validation process failed
-    body: {{build.link}}
+    body: {{ build.link }}
     secrets: [ email_username, email_password, email_recipients ]
     when:
       status: failure
