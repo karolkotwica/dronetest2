@@ -12,8 +12,7 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh
-      # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - abc abc
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
 
   notify-when-validation-error:
     image: drillster/drone-email
@@ -51,23 +50,13 @@ pipeline:
     image: docker:git
     secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
     commands:
-      - cd profile_migration
-      - cat package.xml
-      - cd ..
-      - git status --porcelain
       - git config user.email "$${GITUSER}"
       - git config user.email
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
-      - ls
-      - git remote -v
-      - git add profiles/*
-      - git status --porcelain
-      - git status
-      - git commit -m "test commit from drone [CI SKIP]"
-      - git log
-      # - git push origin master
+      - /bin/sh prof_backup.sh
+
 
   rebuild-cache:
     image: drillster/drone-volume-cache
