@@ -55,11 +55,15 @@ pipeline:
       - git config user.name
       - git config remote.origin.url https://karolkotwica:$${GITHUBTOKEN}@github.com/karolkotwica/dronetest2.git
       - echo '----------------------'
+      - git status --porcelain      
+      - echo '----------------------'
+      - git status --porcelain | grep -q "aaaa"
+      - echo '----------------------'
       - git status --porcelain | grep -q "profiles"
       - echo '----------------------'
       - git add profiles/*
       - git commit -m "backup of changed profiles [CI SKIP]"
-      - git push origin master      
+      - git push origin master
       #- /bin/sh prof_backup.sh
 
   rebuild-cache:
