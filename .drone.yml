@@ -11,8 +11,9 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - /bin/sh get_migration_tool_file.sh |& tee -a output.txt
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} |& tee -a output.txt
+      - /bin/sh get_migration_tool_file.sh #2>> output.txt
+      # - cat output.txt
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} #2>> output.txt
 
   notify-when-validation-error:
     image: drillster/drone-email
@@ -23,8 +24,7 @@ pipeline:
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
     subject: Validation process failed
-    body: >
-      {{ build.link }}    
+    body: testbody.txt
     when:
       status: failure
 
@@ -37,7 +37,7 @@ pipeline:
       - ls
       - cd ../prof_backup
       - pwd
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} |& tee -a output.txt
+      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls      
       - cd profiles
       - pwd
@@ -58,7 +58,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
-      - /bin/sh prof_backup.sh |& tee -a output.txt
+      - /bin/sh prof_backup.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
