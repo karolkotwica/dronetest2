@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exit code 100
+exit 100
