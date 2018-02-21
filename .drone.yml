@@ -14,6 +14,7 @@ pipeline:
       # - /bin/sh get_migration_tool_file.sh #2>> output.txt
       # - cat output.txt
       # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} #2>> output.txt
+      - pwd
       - fgh abc
 
   notify-when-validation-error:
