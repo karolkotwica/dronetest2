@@ -23,7 +23,7 @@ pipeline:
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
     subject: Validation process failed
-    body: file:///drone/src/github.com/karolkotwica/dronetest2/output.txt
+    body: file:///drone/src/github.com/karolkotwica/dronetest2/output.html
     when:
       status: failure
 
