@@ -8,11 +8,12 @@
 
     <!-- INT -->
     <target name="retrieveProfileFromInt">
+        <mkdir dir="retrieveOutput"/>
         <sf:retrieve
                 username="${username}"
                 password="${password}"
                 serverurl="${general.url.sandbox}"
-                retrieveTarget="."
+                retrieveTarget="retrieveOutput"
                 unpackaged="package.xml">
         </sf:retrieve>
     </target>    

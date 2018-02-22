@@ -39,14 +39,15 @@ pipeline:
       - pwd
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - cat package.xml
+      - cd retrieveOutput
       - ls
       - cd profiles
       - pwd
       - ls
       - cat Admin.profile
-      - cp * ../../profiles
-      - cd ../../profiles
-      - cat Admin.profile
+      #- cp * ../../profiles
+      # - cd ../../profiles
+      # - cat Admin.profile
       - pwd
       - ls
 
@@ -61,7 +62,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
-      - /bin/sh prof_backup.sh
+      # - /bin/sh prof_backup.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
