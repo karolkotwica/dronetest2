@@ -6,6 +6,8 @@ pipeline:
       - ./migration_tool
     volumes:
       - /tmp/cache:/cache
+    when:
+      event: [ push, tag ]
 
   build:
     image: frekele/ant
@@ -13,6 +15,8 @@ pipeline:
     commands:
       - /bin/sh get_migration_tool_file.sh
       # - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} 2>> output.html
+    when:
+      event: [ push, tag ]
 
   notify-when-validation-error:
     image: drillster/drone-email
@@ -50,6 +54,8 @@ pipeline:
       # - cat Admin.profile
       - pwd
       - ls
+    when:
+      event: [ push, tag ]
 
   get-and-save-profiles:
     image: docker:git
@@ -63,6 +69,8 @@ pipeline:
       - git config user.name
       - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
       # - /bin/sh prof_backup.sh
+    when:
+      event: [ push, tag ]
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -71,16 +79,19 @@ pipeline:
       - ./migration_tool
     volumes:
       - /tmp/cache:/cache
+    when:
+      event: [ push, tag ]
 
   auto-tests:
     image: nightwatch2
     secrets: [ dashusername, dashpass ]
     commands:
-      - cat output.txt      
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
       # - nightwatch tests
       - pwd
+    when:
+      event: [ push, tag ]
 
   notify-when-e2e-tests-error:
     image: drillster/drone-email
