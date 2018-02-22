@@ -13,7 +13,7 @@
                 password="${password}"
                 serverurl="${general.url.sandbox}"
                 retrieveTarget="."
-                unpackaged="package.xml">
+                unpackaged="zxc/package.xml">
         </sf:retrieve>
     </target>    
 </project>

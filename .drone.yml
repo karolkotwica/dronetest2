@@ -37,13 +37,17 @@ pipeline:
       - ls
       - cd ../prof_backup
       - pwd
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+      - mkdir abc
+      - cd abc
+      - pwd
+      - ant -lib ../../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
       - ls      
       - cd profiles
       - pwd
       - ls
-      - cp * ../../profiles
-      - cd ../../profiles
+      - cat Admin.profile
+      - cp * ../../../profiles
+      - cd ../../../profiles
       - cat Admin.profile
       - pwd
       - ls
