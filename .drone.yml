@@ -44,6 +44,7 @@ pipeline:
       - ls
       - cp * ../../profiles
       - cd ../../profiles
+      - cat Admin.profile
       - pwd
       - ls
 
