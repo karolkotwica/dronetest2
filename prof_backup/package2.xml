@@ -77,12 +77,7 @@
     </types>
     <types>
         <members>PartnerCommunitySettings__c</members>
-        <members>Opportunity</members>
-        <members>Account</members>
-        <members>Contact</members>
-        <members>User</members>
         <members>PC_LicensesManager__c</members>
-        <members>Lead</members>
         <name>CustomObject</name>
     </types>
     <types>
