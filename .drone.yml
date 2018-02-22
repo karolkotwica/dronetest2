@@ -12,7 +12,7 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh #2>> output.txt
-      - /bin/sh error.sh 
+      - /bin/sh error.sh
       - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} 2>> output.html
 
   notify-when-validation-error:
@@ -58,7 +58,7 @@ pipeline:
       - git config user.name "$${GITUSER_NAME}"
       - git config user.name
       - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
-      # - /bin/sh prof_backup.sh
+      - /bin/sh prof_backup.sh
 
   rebuild-cache:
     image: drillster/drone-volume-cache
