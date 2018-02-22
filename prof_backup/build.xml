@@ -14,7 +14,7 @@
                 password="${password}"
                 serverurl="${general.url.sandbox}"
                 retrieveTarget="retrieveOutput"
-                unpackaged="package.xml">
+                unpackaged="package2.xml">
         </sf:retrieve>
     </target>    
 </project>

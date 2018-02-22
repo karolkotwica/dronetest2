@@ -39,10 +39,10 @@ pipeline:
       - rm -f *
       - ls
       - cd ../prof_backup
-      - cat package.xml
+      - cat package2.xml
       - pwd
       - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - cat package.xml
+      - cat package2.xml
       - cd retrieveOutput
       - ls
       - cd profiles
