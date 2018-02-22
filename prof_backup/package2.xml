@@ -73,6 +73,7 @@
     </types>
     <types>
         <members>Account.PC_Active_Purchased_Frm__c</members>
+        <members>Account.PC_CustomerAdminEmail__c</members>        
         <name>CustomField</name>
     </types>
     <types>
