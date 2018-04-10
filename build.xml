@@ -18,7 +18,6 @@
                 checkOnly="true"
                 maxPoll="2000"
                 ignorewarnings="true">
-            <runTest>PC_PartnerSettingsControllerTest</runTest>
         </sf:deploy>
     </target>    
 </project>
