@@ -31,46 +31,46 @@ pipeline:
     when:
       status: failure
 
-  retrieve-profiles-from-int:
-    image: frekele/ant
-    secrets: [ sfusername, sfpass ]
-    commands:
-      - cd profiles
-      - rm -f *
-      - ls
-      - cd ../prof_backup
-      - cat package2.xml
-      - pwd
-      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
-      - cat package2.xml
-      - cd retrieveOutput
-      - ls
-      - cd profiles
-      - pwd
-      - ls
-      - cat Admin.profile
-      #- cp * ../../profiles
-      # - cd ../../profiles
-      # - cat Admin.profile
-      - pwd
-      - ls
-    when:
-      event: [ push, tag ]
+#  retrieve-profiles-from-int:
+#    image: frekele/ant
+#    secrets: [ sfusername, sfpass ]
+#    commands:
+#      - cd profiles
+#      - rm -f *
+#     - ls
+#      - cd ../prof_backup
+#      - cat package2.xml
+#      - pwd
+#      - ant -lib ../migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS}
+#      - cat package2.xml
+#      - cd retrieveOutput
+#      - ls
+#      - cd profiles
+#      - pwd
+#      - ls
+#      - cat Admin.profile
+#      #- cp * ../../profiles
+#      # - cd ../../profiles
+#      # - cat Admin.profile
+#      - pwd
+#      - ls
+#    when:
+#      event: [ push, tag ]
 
-  get-and-save-profiles:
-    image: docker:git
-    secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
-    commands:
-      - pwd
-      - ls
-      - git config user.email "$${GITUSER}"
-      - git config user.email
-      - git config user.name "$${GITUSER_NAME}"
-      - git config user.name
-      - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
-      # - /bin/sh prof_backup.sh
-    when:
-      event: [ push, tag ]
+#  get-and-save-profiles:
+#    image: docker:git
+#    secrets: [ gituser, gituser_name, githubtoken, githubtoken2 ]    
+#    commands:
+#      - pwd
+#      - ls
+#      - git config user.email "$${GITUSER}"
+#      - git config user.email
+#      - git config user.name "$${GITUSER_NAME}"
+#      - git config user.name
+#      - git config remote.origin.url https://$${GITUSER_NAME}:$${GITHUBTOKEN}@github.com/$${GITUSER_NAME}/dronetest2.git
+#       - /bin/sh prof_backup.sh
+#    when:
+#      event: [ push, tag ]
 
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -88,7 +88,7 @@ pipeline:
     commands:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
-      # - nightwatch tests
+      - nightwatch --verbose tests 2>> output.html
       - pwd
     when:
       event: [ push, tag ]
