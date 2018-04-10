@@ -106,6 +106,6 @@ pipeline:
     when:
       status: failure      
 
-#services:
-#  selenium:
-#    image: selenium/standalone-chrome
+services:
+  selenium:
+    image: selenium/standalone-chrome
