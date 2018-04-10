@@ -102,6 +102,7 @@ pipeline:
     recipients: $EMAIL_RECIPIENTS
     subject: E2E testing failed
     secrets: [ email_username, email_password, email_recipients ]
+    body: file:///drone/src/github.com/karolkotwica/dronetest2/output.html
     when:
       status: failure      
 
