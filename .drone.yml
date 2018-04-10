@@ -14,8 +14,8 @@ pipeline:
     secrets: [ sfusername, sfpass ]
     commands:
       - /bin/sh get_migration_tool_file.sh
-      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} 2>&1 | tee -a output.html
       - /bin/bash pipe.sh
+      - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} 2>&1 | tee -a output.html
     when:
       event: [ push, tag ]
 

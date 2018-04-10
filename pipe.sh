@@ -1,3 +1,2 @@
 #!/bin/bash
-- set -o pipefail
-- echo $?
+shopt -s pipefail
