@@ -1,3 +1,3 @@
 #!/bin/bash
-
-echo "${PIPESTATUS[@]}"
+- set -o pipefail
+- echo $?
