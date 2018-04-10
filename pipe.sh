@@ -1,2 +1,3 @@
 #!/bin/bash
-shopt -s pipefail
+# shopt -s pipefail
+set -o pipefail
