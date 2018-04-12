@@ -4,5 +4,6 @@
 # receive the exit code from 'tee'
 echo 'starting'
 set -o pipefail
-- cat x| sed 's///'
-- echo $?
+cat x| sed 's///'
+echo $?
+echo ${DASHUSERNAME}
