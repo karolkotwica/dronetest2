@@ -6,4 +6,4 @@ echo 'starting'
 set -o pipefail
 cat x| sed 's///'
 echo $?
-echo ${DASHUSERNAME}
+echo $${DASHUSERNAME}
