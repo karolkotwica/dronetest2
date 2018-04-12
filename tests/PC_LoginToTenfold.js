@@ -13,8 +13,8 @@ module.exports = {
         .setValue('#password',client.globals.pass).pause(200);
 
         client.useXpath()
-        .assert.visible("//input[@value='LOG IN']")
-        .click("//input[@value='LOG IN']").pause(200)
+        .assert.visible("//input[@value='LOGGGGGG IN']")
+        .click("//input[@value='LOGGGGGG IN']").pause(200)
         .assert.visible("//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(15000)
         .assert.visible("//div[@class='cProfileMenu slds-m-left--x-small']");
