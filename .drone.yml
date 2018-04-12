@@ -24,8 +24,6 @@ pipeline:
       # 
       # 2>&1 | tee -a output.html
       # echo "hi" |& tee -a log.txt #stdout & stderr -> log & stdout
-      - exit 1
-
     when:
       event: [ push, tag ]
 
