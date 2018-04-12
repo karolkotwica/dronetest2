@@ -27,19 +27,6 @@ pipeline:
     when:
       event: [ push, tag ]
 
-  notify-when-validation-error:
-    image: drillster/drone-email
-    secrets: [ email_username, email_password, email_recipients ]
-    host: smtp.gmail.com
-    from: buildserverdroneio@example.com
-    username: $EMAIL_PASSWORD
-    password: $EMAIL_USERNAME
-    recipients: $EMAIL_RECIPIENTS
-    subject: Validation process failed
-    body: file:///drone/src/github.com/karolkotwica/dronetest2/output.html
-    when:
-      status: failure
-
 #  retrieve-profiles-from-int:
 #    image: frekele/ant
 #    secrets: [ sfusername, sfpass ]
@@ -102,14 +89,14 @@ pipeline:
     when:
       event: [ push, tag ]
 
-  notify-when-e2e-tests-error:
+  notify-when-build-fails:
     image: drillster/drone-email
     host: smtp.gmail.com
     from: buildserverdroneio@example.com
     username: $EMAIL_PASSWORD
     password: $EMAIL_USERNAME
     recipients: $EMAIL_RECIPIENTS
-    subject: E2E testing failed
+    subject: Partner Portal build failed
     secrets: [ email_username, email_password, email_recipients ]
     body: file:///drone/src/github.com/karolkotwica/dronetest2/output.html
     when:
