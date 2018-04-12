@@ -16,7 +16,6 @@ pipeline:
       - /bin/sh get_migration_tool_file.sh
       - /bin/bash pipe.sh
       - exec 3>&1
-      -
       - ant -lib migration_tool/ant-salesforce.jar -Dusername=$${SFUSERNAME} -Dpassword=$${SFPASS} 2>&1 >&3 | tee -a output.html
       #  2>&1 >>output.html
       #  2>> output.html
