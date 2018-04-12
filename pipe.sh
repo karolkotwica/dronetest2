@@ -6,4 +6,4 @@ echo 'starting'
 # set -o pipefail
 cat x| foo
 echo $?
-echo $PIPESTATUS
+echo ${PIPESTATUS[1]}
