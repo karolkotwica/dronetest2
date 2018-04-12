@@ -5,11 +5,9 @@
 echo 'starting'
 # set -o pipefail
 exec 3>&1;
-ant -lib migration_tool/ant-salesforce.jar -Dusername=$SFUSR -Dpassword=$SFPSS 2>&1 >&3 | tee -a output.html | foo | ls;
-echo ${PIPESTATUS[*]};
+ant -lib migration_tool/ant-salesforce.jar -Dusername=$SFUSR -Dpassword=$SFPSS 2>&1 >&3 | tee -a output.html | ls
+echo ${PIPESTATUS[@]};
+${PIPESTATUS[0]}
 echo 'testtt';
 echo "${PIPESTATUS[0]}"
-echo "${PIPESTATUS[1]}"
-echo "${PIPESTATUS[2]}"
-echo "${PIPESTATUS[3]}"
 exit 1
