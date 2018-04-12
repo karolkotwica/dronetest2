@@ -85,7 +85,6 @@ pipeline:
       - export DASH_LOGIN=$${DASHUSERNAME}
       - export DASH_PASS=$${DASHPASS}
       - /bin/bash e2e.sh
-      - pwd
     when:
       event: [ push, tag ]
 
