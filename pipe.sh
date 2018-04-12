@@ -4,6 +4,6 @@
 # receive the exit code from 'tee'
 echo 'starting'
 # set -o pipefail
-cat x| foo
-echo $?
-echo ${PIPESTATUS[1]}
+exec 3>&1
+ant -lib migration_tool/ant-salesforce.jar -Dusername=SFUSR -Dpassword=SFPSS | foo | ls
+echo ${PIPESTATUS[*]}
