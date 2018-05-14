@@ -12,18 +12,9 @@ util.inherits(goToDestination, events.EventEmitter);
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     
     this.api
-        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")
+        .refreshUntilElementVisible('xpath', "//button[@title='Toggle SideBar']")
         .useXpath()
-        .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
-            if(result.status != -1) {
-                this
-                    .click("//a/span[contains(text(), 'More')]")
-                    .click("//a[@title='" + MenuTitle + "']")
-            } else {
-                this
-                .click("//a[@title='" + MenuTitle + "']")
-            }
-        }) 
+        .click("//a[@title='" + MenuTitle + "']")
         .pause(200, () => {
            this.emit('complete');
         });
