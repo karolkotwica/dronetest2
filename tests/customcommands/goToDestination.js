@@ -11,6 +11,10 @@ util.inherits(goToDestination, events.EventEmitter);
 
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     
+
+    this.api
+        .refreshUntilElementVisible('xpath', "//div[@class='cCenterPanel']");    
+        //div[@class='cCenterPanel slds-m-top--x-large slds-p-horizontal--medium']        
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='slds-col--padded contentRegion comm-layout-column']");
 
@@ -20,10 +24,11 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     this.api
         .useXpath()
         .element('xpath', "//button[@title='Toggle SideBar']", function(result){
-console.log('----------------------------aaaaaaaaaaaaaaaa----------------------------');            
+            console.log('----------------------------aaaaaaaaaaaaaaaa----------------------------');            
             console.log(result.status)
-console.log('----------------------------aaaaaaaaaaaaaaaa----------------------------');            
+            console.log('----------------------------aaaaaaaaaaaaaaaa----------------------------');            
         });
+console.log('between two apis');
      this.api
         .useXpath()
         .element('xpath', "//nav[@class='forceCommunityNavigationMenu']", function(result){
