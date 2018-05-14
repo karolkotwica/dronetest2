@@ -14,20 +14,26 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='slds-col--padded contentRegion comm-layout-column']");
 
-    var mobileLayoutIsActive = this.api
-        .useXpath()
-        .element('xpath', "//button[@title='Toggle SideBar']") ;        
-        
-    var standardLayoutIsActive = this.api
-        .useXpath()
-        .element('xpath', "//nav[@class='forceCommunityNavigationMenu']");
+    var mobileLayoutIsActive;
+    var standardLayoutIsActive;
 
-console.log('----------------------------goToDestination----------------------------');
+    this.api
+        .useXpath()
+        .element('xpath', "//button[@title='Toggle SideBar']", function(result){
+            mobileLayoutIsActive = result.status;
+        });
+     this.api
+        .useXpath()
+        .element('xpath', "//nav[@class='forceCommunityNavigationMenu']", function(result){
+            standardLayoutIsActive = result.status;
+        });
+
+console.log('----------------------------goToDestinationStart----------------------------');
 console.log('mobileLayoutIsActive');
 console.log(mobileLayoutIsActive);
 console.log('standardLayoutIsActive');
 console.log(standardLayoutIsActive);
-console.log('----------------------------goToDestination----------------------------');
+console.log('----------------------------goToDestinationEnd----------------------------');
 
     this.api
         .useXpath()
