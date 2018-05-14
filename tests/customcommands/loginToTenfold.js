@@ -10,7 +10,7 @@ util.inherits(loginToTenfold, events.EventEmitter);
 loginToTenfold.prototype.command = function() {
 
     this.api
-        .url('https://int-tenfoldint.cs90.force.com/s/')
+        .url('https://brdev-tenfold.cs20.force.com/partner/s/')
         .refreshUntilElementVisible('css selector', "#username")
         .assert.visible("#username")
         .assert.visible("#password")
