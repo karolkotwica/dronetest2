@@ -30,7 +30,10 @@
       },      
       "desiredCapabilities": {
         "browserName": "chrome",
-        "marionette": true
+        "marionette": true,
+        "chromeOptions" : {
+            "args" : ["start-fullscreen"]
+        }
       }
     },
 
