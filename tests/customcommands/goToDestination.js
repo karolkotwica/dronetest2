@@ -17,8 +17,7 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     var mobileLayoutIsActive = this.api
         .useXpath()
         .element('xpath', "//button[@title='Toggle SideBar']") ;        
-                .refreshUntilElementVisible('xpath', "")
-
+        
     var standardLayoutIsActive = this.api
         .useXpath()
         .element('xpath', "//nav[@class='forceCommunityNavigationMenu']");
