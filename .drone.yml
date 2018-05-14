@@ -13,7 +13,7 @@ pipeline:
     image: frekele/ant
     secrets: [ sfusername, sfpass ]
     commands:
-      - /bin/sh get_migration_tool_file.sh
+#      - /bin/sh get_migration_tool_file.sh
       - export SFUSR=$${SFUSERNAME}
       - export SFPSS=$${SFPASS}
 #      - /bin/bash save_output_to_log.sh
