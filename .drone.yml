@@ -16,7 +16,7 @@ pipeline:
       - /bin/sh get_migration_tool_file.sh
       - export SFUSR=$${SFUSERNAME}
       - export SFPSS=$${SFPASS}
-      - /bin/bash save_output_to_log.sh
+#      - /bin/bash save_output_to_log.sh
     when:
       event: [ push ]
 
