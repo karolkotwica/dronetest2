@@ -32,7 +32,7 @@
         "browserName": "chrome",
         "marionette": true,
         "chromeOptions" : {
-            "args" : ["start-fullscreen"]
+            "args" : ["--no-sandbox", "start-fullscreen"]
         }
       }
     },
