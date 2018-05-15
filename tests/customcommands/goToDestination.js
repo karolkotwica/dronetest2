@@ -62,13 +62,13 @@ console.log('between two apis');
     //     .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
 
 
-
+    var testDuration = {maxRounds: 1, timeout: 3000};
      this.api
         .useXpath()
-        .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", {maxRounds = 1, timeout = 3000})
-        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", {maxRounds = 1, timeout = 3000})
+        .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
+        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
         .click("//a[@title='" + MenuTitle + "']")
-        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", {maxRounds = 1, timeout = 3000})                
+        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
         .pause(200, () => {
            this.emit('complete');
         });
