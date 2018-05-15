@@ -10,6 +10,7 @@ pipeline:
       event: [ push ]
 
   testing-screenshots:
+    image: drillster/drone-email
     commands:
       - echo 'wywolanie jak failure'
     when:
