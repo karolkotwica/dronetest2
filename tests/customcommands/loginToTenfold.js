@@ -17,12 +17,14 @@ loginToTenfold.prototype.command = function() {
         .setValue('#username', this.api.globals.username).pause(200)
         .setValue('#password', this.api.globals.pass).pause(200);
 
-    this.api.useXpath()
+    this.api
         .refreshUntilElementVisible('XPath', "//input[@value='LOG IN']")
         .click("//input[@value='LOG IN']").pause(200)
         .refreshUntilElementVisible('XPath', "//input[@value='AUTHORIZE']")
-        .click("//input[@value='AUTHORIZE']").pause(200)
-        .refreshUntilElementVisible('xpath', "//div[@class='cProfileMenu']")
+        .click("//input[@value='AUTHORIZE']").pause(200);
+        
+    this.api        
+        .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']")
         .pause(200, () => {
            this.emit('complete');
         });
