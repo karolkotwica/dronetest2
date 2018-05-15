@@ -14,12 +14,15 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
 
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");    
+console.log('---------ABCDEF1------------------');
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='cCenterPanel']");    
+console.log('---------ABCDEF2------------------');        
         //div[@class='cCenterPanel slds-m-top--x-large slds-p-horizontal--medium']
+console.log('---------ABCDEF3------------------');        
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='slds-col--padded contentRegion comm-layout-column']");
-
+console.log('---------ABCDEF4------------------');        
     var mobileLayoutIsActive;
     var standardLayoutIsActive;
 
