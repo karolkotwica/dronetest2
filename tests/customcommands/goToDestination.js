@@ -11,6 +11,18 @@ util.inherits(goToDestination, events.EventEmitter);
 
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     
+    this.api.element('class', 'navigationMenu', (result) => {
+        console.log('---------bbbbbbbbbb------------------');
+        console.log(result.status);
+        console.log('---------bbbbbbbbbb------------------');
+    })
+
+//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
+    this.api.element('class', 'cAltToggleNav', (result) => {
+        console.log('---------cccccccccc------------------');
+        console.log(result.status);
+        console.log('---------cccccccccc------------------');
+    })
 
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");    
@@ -23,8 +35,6 @@ console.log('---------ABCDEF3------------------');
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='slds-col--padded contentRegion comm-layout-column']");
 console.log('---------ABCDEF4------------------');        
-    var mobileLayoutIsActive;
-    var standardLayoutIsActive;
 
     this.api
         .useXpath()
@@ -39,13 +49,6 @@ console.log('between two apis');
         .element('xpath', "//nav[@class='forceCommunityNavigationMenu']", function(result){
             standardLayoutIsActive = result.status;
         });
-
-console.log('----------------------------goToDestinationStart----------------------------');
-console.log('mobileLayoutIsActive');
-console.log(mobileLayoutIsActive);
-console.log('standardLayoutIsActive');
-console.log(standardLayoutIsActive);
-console.log('----------------------------goToDestinationEnd----------------------------');
 
     this.api
         .useXpath()
