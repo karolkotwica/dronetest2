@@ -10,7 +10,7 @@ function goToDestination() {
 util.inherits(goToDestination, events.EventEmitter);
 
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
-
+/*
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
         .element('class name', 'navigationMenu', (result) => {
@@ -24,7 +24,7 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
         console.log('---------cccccccccc------------------');
     })
 
-//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
+    //community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
     this.api.element('class name', 'cAltToggleNav', (result) => {
         console.log('---------dddddd------------------');
         console.log(result);
@@ -56,13 +56,21 @@ console.log('between two apis');
         .element('xpath', "//nav[@class='forceCommunityNavigationMenu']", function(result){
             standardLayoutIsActive = result.status;
         });
+*/
+    // this.api
+    //     .useXpath()
+    //     .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
+        
 
-    this.api
+
+     this.api
         .useXpath()
+        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")
         .click("//a[@title='" + MenuTitle + "']")
         .pause(200, () => {
            this.emit('complete');
         });
+
     this.api.pause(30000);
     return this;
 };
