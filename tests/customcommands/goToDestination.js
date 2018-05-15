@@ -20,15 +20,15 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
         })
         .element('class name', 'cAltToggleNav', (result) => {
         console.log('---------cccccccccc------------------');
-        console.log(result.status);
+        console.log(result);
         console.log('---------cccccccccc------------------');
     })
 
 //community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
     this.api.element('class name', 'cAltToggleNav', (result) => {
-        console.log('---------cccccccccc------------------');
-        console.log(result.status);
-        console.log('---------cccccccccc------------------');
+        console.log('---------dddddd------------------');
+        console.log(result);
+        console.log('---------dddddd------------------');
     })
 
     this.api
