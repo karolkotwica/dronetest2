@@ -26,7 +26,9 @@
       "silent": true,
       "screenshots" : {
         "enabled" : false,
-        "path" : ""
+        "path" : "./tests/pic",
+        "on_failure": true,
+        "on_error": true
       },      
       "desiredCapabilities": {
         "browserName": "chrome",
