@@ -62,18 +62,21 @@ console.log('between two apis');
     //     .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
 
     var testDuration = {maxRounds: 1, timeout: 3000};
+    var abc = 0;
      this.api
         .maximizeWindow()
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
+            abc = 1;
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
-            console.log(result);
+            console.log(result.value);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
         })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
             console.log(result);
+            console.log(abc);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
         })        
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
