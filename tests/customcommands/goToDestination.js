@@ -13,8 +13,10 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     
 
     this.api
+        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");    
+    this.api
         .refreshUntilElementVisible('xpath', "//div[@class='cCenterPanel']");    
-        //div[@class='cCenterPanel slds-m-top--x-large slds-p-horizontal--medium']        
+        //div[@class='cCenterPanel slds-m-top--x-large slds-p-horizontal--medium']
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='slds-col--padded contentRegion comm-layout-column']");
 
