@@ -64,7 +64,7 @@ console.log('between two apis');
     var testDuration = {maxRounds: 1, timeout: 3000};
     var abc = 0;
      this.api
-        .resizeWindow(400, 400);
+        .resizeWindow(400, 400)
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
