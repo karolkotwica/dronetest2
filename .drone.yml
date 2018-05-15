@@ -10,12 +10,13 @@ pipeline:
       event: [ push ]
 
   testing-screenshots:
-    image: frekele/ant
+    image: docker:git
     commands:
       - echo 'wywolanie jak failure'
-      - git status
       - cd tests/pic
       - ls
+      - cd ../..
+      - git status
     when:
       status: failure
 
