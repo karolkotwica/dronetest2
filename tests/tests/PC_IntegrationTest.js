@@ -9,7 +9,7 @@ module.exports = {
             .refreshUntilElementVisible("xpath", "//h1[contains(text(), 'CRMs')]", testDuration2)
             // .refreshUntilElementVisible("xpath", "//h1[contains(text(), 'Phone Systems')]", testDuration2);
             // .refreshUntilElementVisible("xpath", "//nav[@class='forceCommunityNavigationMenu']")
-            //.click("//a[@title = 'Integrations']")
+            // .click("//a[@title = 'Integrations']")
     },
 
     PC_IntegrationsEnd : function(client) {
