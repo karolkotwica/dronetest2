@@ -12,12 +12,16 @@ util.inherits(goToDestination, events.EventEmitter);
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
 
     this.api
-        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");
-    
-    this.api.element('class name', 'navigationMenu', (result) => {
-        console.log('---------bbbbbbbbbb------------------');
+        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
+        .element('class name', 'navigationMenu', (result) => {
+            console.log('---------bbbbbbbbbb------------------');
+            console.log(result.status);
+            console.log('---------bbbbbbbbbb------------------');
+        })
+        .element('class name', 'cAltToggleNav', (result) => {
+        console.log('---------cccccccccc------------------');
         console.log(result.status);
-        console.log('---------bbbbbbbbbb------------------');
+        console.log('---------cccccccccc------------------');
     })
 
 //community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
