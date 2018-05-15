@@ -69,12 +69,12 @@ console.log('between two apis');
             console.log('----------------------------vvvvvvvvvvvvvvvvvvv----------------------------');
             this.assert.equal(result.status, 0);
             console.log('----------------------------vvvvvvvvvvvvvvvvvvv----------------------------');
-        });
+        })
         .isVisible('.cAltToggleNav', function(result) {
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
             this.assert.equal(result.status, 0);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
-        });        
+        })        
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
         .click("//a[@title='" + MenuTitle + "']")
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
