@@ -11,14 +11,14 @@ util.inherits(goToDestination, events.EventEmitter);
 
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     
-    this.api.element('class', 'navigationMenu', (result) => {
+    this.api.element('class name', 'navigationMenu', (result) => {
         console.log('---------bbbbbbbbbb------------------');
         console.log(result.status);
         console.log('---------bbbbbbbbbb------------------');
     })
 
 //community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']//lightning-button-icon//button[@title='Toggle SideBar']
-    this.api.element('class', 'cAltToggleNav', (result) => {
+    this.api.element('class name', 'cAltToggleNav', (result) => {
         console.log('---------cccccccccc------------------');
         console.log(result.status);
         console.log('---------cccccccccc------------------');
