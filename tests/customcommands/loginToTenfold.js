@@ -18,11 +18,12 @@ loginToTenfold.prototype.command = function() {
         .setValue('#password', this.api.globals.pass).pause(200);
 
     this.api
+        .useXpath()
         .refreshUntilElementVisible('XPath', "//input[@value='LOG IN']")
         .click("//input[@value='LOG IN']").pause(200)
         .refreshUntilElementVisible('XPath', "//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(200);
-        
+
     this.api        
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']")
         .pause(200, () => {
