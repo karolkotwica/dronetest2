@@ -65,9 +65,10 @@ console.log('between two apis');
 
      this.api
         .useXpath()
+        .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']")
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")
         .click("//a[@title='" + MenuTitle + "']")
-        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")                
+        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", {maxRounds = 1, timeout = 3000})                
         .pause(200, () => {
            this.emit('complete');
         });
