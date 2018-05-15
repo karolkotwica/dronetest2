@@ -64,18 +64,18 @@ console.log('between two apis');
     var testDuration = {maxRounds: 1, timeout: 3000};
     var abc = 0;
      this.api
-        .maximizeWindow()
+        .resizeWindow(400, 400);
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
             abc = 1;
-            console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
+            console.log('----------------------------ffffffffffffffffffff----------------------------');
             console.log(result.value);
-            console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
+            console.log('----------------------------ffffffffffffffffffff----------------------------');
         })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
-            console.log(result);
+            console.log(result.value);
             console.log(abc);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
         })        
