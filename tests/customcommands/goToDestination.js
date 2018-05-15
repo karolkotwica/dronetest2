@@ -65,12 +65,12 @@ console.log('between two apis');
      this.api
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
-        .isVisible('.forceCommunityNavigationMenu', function(result) {
+        .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             console.log('----------------------------vvvvvvvvvvvvvvvvvvv----------------------------');
             console.log(result.status);
             console.log('----------------------------vvvvvvvvvvvvvvvvvvv----------------------------');
         })
-        .isVisible('.cAltToggleNav', function(result) {
+        .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
             console.log(result.status);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');

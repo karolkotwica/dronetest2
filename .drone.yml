@@ -13,9 +13,9 @@ pipeline:
     image: docker:git
     commands:
       - echo 'wywolanie jak failure'
-      - cd tests/pic
+      - cd tests/pic/PC_IntegrationTest/
       - ls
-      - cd ../..
+      - cd ../../..
       - git status
     when:
       status: failure
