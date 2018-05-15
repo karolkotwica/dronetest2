@@ -25,8 +25,8 @@
       "selenium_host"  : "selenium",
       "silent": true,
       "screenshots" : {
-        "enabled" : false,
-        "path" : "./tests/pic",
+        "enabled" : true,
+        "path" : "",
         "on_failure": true,
         "on_error": true
       },      
