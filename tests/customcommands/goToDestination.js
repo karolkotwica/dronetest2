@@ -60,13 +60,14 @@ console.log('between two apis');
     // this.api
     //     .useXpath()
     //     .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
-        
+
 
 
      this.api
         .useXpath()
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")
         .click("//a[@title='" + MenuTitle + "']")
+        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']")                
         .pause(200, () => {
            this.emit('complete');
         });
