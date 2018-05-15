@@ -9,12 +9,12 @@ pipeline:
     when:
       event: [ push ]
 
-  testing-screenshots:
-    image: drillster/drone-email
-    commands:
-      - echo 'wywolanie jak failure'
-    when:
-      status: failure
+#  testing-screenshots:
+#    image: drillster/drone-email
+#    commands:
+#      - echo 'wywolanie jak failure'
+#    when:
+#      status: failure
 
   notify-when-build-fails:
     image: drillster/drone-email
