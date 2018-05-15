@@ -10,6 +10,9 @@ function goToDestination() {
 util.inherits(goToDestination, events.EventEmitter);
 
 goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
+
+    this.api
+        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");
     
     this.api.element('class name', 'navigationMenu', (result) => {
         console.log('---------bbbbbbbbbb------------------');
@@ -25,7 +28,7 @@ goToDestination.prototype.command = function(logginToTenfold, MenuTitle) {
     })
 
     this.api
-        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");    
+        .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']");
 console.log('---------ABCDEF1------------------');
     this.api
         .refreshUntilElementVisible('xpath', "//div[@class='cCenterPanel']");    
