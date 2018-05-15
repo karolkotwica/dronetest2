@@ -1,35 +1,4 @@
 pipeline:
-  restore-cache:
-    image: drillster/drone-volume-cache
-    restore: true
-    mount:
-      - ./migration_tool
-    volumes:
-      - /tmp/cache:/cache
-    when:
-      event: [ push ]
-
-  build:
-    image: frekele/ant
-    secrets: [ sfusername, sfpass ]
-    commands:
-#      - /bin/sh get_migration_tool_file.sh
-      - export SFUSR=$${SFUSERNAME}
-      - export SFPSS=$${SFPASS}
-#      - /bin/bash save_output_to_log.sh
-    when:
-      event: [ push ]
-
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./migration_tool
-    volumes:
-      - /tmp/cache:/cache
-    when:
-      event: [ push ]
-
   e2etests:
     image: negativelypositive/nightwatch
     secrets: [ dashusername, dashpass ]
