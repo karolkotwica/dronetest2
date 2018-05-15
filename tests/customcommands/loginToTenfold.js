@@ -22,7 +22,7 @@ loginToTenfold.prototype.command = function() {
         .click("//input[@value='LOG IN']").pause(200)
         .refreshUntilElementVisible('XPath', "//input[@value='AUTHORIZE']")
         .click("//input[@value='AUTHORIZE']").pause(200)
-        .refreshUntilElementVisible('XPath', "//div[@class='cProfileMenu slds-m-left--x-small']")
+        .refreshUntilElementVisible('xpath', "//div[@class='cProfileMenu']")
         .pause(200, () => {
            this.emit('complete');
         });
