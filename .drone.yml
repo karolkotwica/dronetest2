@@ -12,7 +12,7 @@ pipeline:
   testing-screenshots:
     commands:
       - echo 'wywolanie jak failure'
-    when
+    when:
       status: failure
 
   notify-when-build-fails:
