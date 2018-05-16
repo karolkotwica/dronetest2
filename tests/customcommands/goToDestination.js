@@ -84,19 +84,18 @@ console.log('between two apis');
         })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             if(result.value) {
-                console.log('----------------------------nnnnnnnnnnnnnnnnnnnnn----------------------------');
-                console.log(result.status)
-                console.log('----------------------------nnnnnnnnnnnnnnnnnnnnn----------------------------');
+                console.log('----------------------------standard menu visible----------------------------');
                 this
-                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
-                        console.log('----------------------------jjjjjjjjjjjjjjjjjj----------------------------');
-                        if(result.status != -1) {
-                            console.log('----------------------------mmmmmmmmmmmmmmmmmmmmmmmmm----------------------------');
+                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {
+                        console.log('----------------------------checking more tab----------------------------');
+                        console.log(result2);
+                        if(result2.status != -1) {
+                            console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
                                 .click("//a[@title='" + MenuTitle + "']")
                         } else {
-                            console.log('----------------------------ppppppppp----------------------------');
+                            console.log('----------------------------tab visible right away----------------------------');
                             this
                                 .click("//a[@title='" + MenuTitle + "']")
                         }
