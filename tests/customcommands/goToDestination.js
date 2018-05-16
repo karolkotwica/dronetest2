@@ -91,7 +91,7 @@ console.log('between two apis');
                         console.log('----------------------------checking more tab----------------------------');
                         console.log(result2);
                         // console.log(this);
-                        if(result2.value) {
+                        if(result2.status != -1 && result2.value) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .useXpath()
