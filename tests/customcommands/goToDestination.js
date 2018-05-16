@@ -69,19 +69,26 @@ console.log('between two apis');
         .resizeWindow(400, 400)
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
-        .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
-            if(result.value) {
+        .element('xpath', "//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
+            if(result2.value && result.value.ELEMENT) {
                 this
                     .click("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']")
                     .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
+            }
+        })
+//        .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
+            //if(result.value) {
+//                this
+//                    .click("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']")
+//                    .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
                 //a[@class='menuItemLink'][contains(text(),'Integrations')]
                 // this.api.click or this.click?
-            }
-            mobileMenuFound = 1;
-            console.log('----------------------------ffffffffffffffffffff----------------------------');
-            console.log(result.value);
-            console.log('----------------------------ffffffffffffffffffff----------------------------');
-        })
+  //          }
+  //          mobileMenuFound = 1;
+  //          console.log('----------------------------ffffffffffffffffffff----------------------------');
+  //          console.log(result.value);
+  //          console.log('----------------------------ffffffffffffffffffff----------------------------');
+  //      })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             if(result.value) {
                 console.log('----------------------------standard menu visible----------------------------');
