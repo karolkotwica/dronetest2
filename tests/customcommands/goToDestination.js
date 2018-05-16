@@ -62,9 +62,11 @@ console.log('between two apis');
     //     .refreshUntilElementVisible('xpath', "//div[@class='siteforcePrmBody']")
 
     var testDuration = {maxRounds: 1, timeout: 3000};
-    var abc = 0;
+    var mobileMenuFound = 0;
+
      this.api
-        .resizeWindow(400, 400)
+        //.resizeWindow(400, 400)
+        .maximizeWindow()
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
@@ -81,6 +83,25 @@ console.log('between two apis');
             console.log('----------------------------ffffffffffffffffffff----------------------------');
         })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
+            if(result.value) {
+                this
+                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {                  
+                        if(result.status != -1) {
+                            this
+                                .click("//a/span[contains(text(), 'More')]")
+                                .click("//a[@title='" + MenuTitle + "']")
+                        } else {
+                            this
+                            .click("//a[@title='" + MenuTitle + "']")
+                        }
+                    })
+
+                //a[@class='navigationMenuOverflow menuItemLink triggerLink']
+
+                this
+                //a[@class='menuItemLink'][contains(text(),'Integrations')]
+                // this.api.click or this.click?
+            }
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
             console.log(result.value);
             console.log(abc);
