@@ -68,6 +68,14 @@ console.log('between two apis');
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
+            if(result.value) {
+                this
+                    .click("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']")
+                    .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
+                //a[@class='menuItemLink'][contains(text(),'Integrations')]
+                // this.api.click or this.click?
+                // 
+            }
             abc = 1;
             console.log('----------------------------ffffffffffffffffffff----------------------------');
             console.log(result.value);
@@ -78,6 +86,20 @@ console.log('between two apis');
             console.log(result.value);
             console.log(abc);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
+/*
+        .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
+            if(result.status != -1) {
+                this
+                    .click("//a/span[contains(text(), 'More')]")
+                    .click("//a[@title='" + MenuTitle + "']")
+            } else {
+                this
+                .click("//a[@title='" + MenuTitle + "']")
+            }
+        }) 
+
+*/
+
         })        
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
         .click("//a[@title='" + MenuTitle + "']")
