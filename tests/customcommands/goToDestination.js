@@ -85,20 +85,20 @@ console.log('between two apis');
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             if(result.value) {
                 console.log('----------------------------standard menu visible----------------------------');
-                this
+                this.api
                     .isVisible("//a/span[contains(text(), 'More')]", function(result2) {
                         console.log('----------------------------checking more tab----------------------------');
                         console.log(result2);
                         // console.log(this);
                         if(result2.value) {
                             console.log('----------------------------more tab visible ----------------------------');
-                            this
+                            this.api
                                 .click("//a/span[contains(text(), 'More')]")
                                 .click("//div[@class='subMenu']//a[contains(text(),'Integrations')]");
                                 //.click("//div[@class='subMenu']//a[@title='" + MenuTitle + "')]");
                         } else {
                             console.log('----------------------------tab visible right away----------------------------');
-                            this
+                            this.api
                                 .click("//a[@title='" + MenuTitle + "']")
                         }
                     })
