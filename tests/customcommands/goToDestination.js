@@ -65,8 +65,8 @@ console.log('between two apis');
     var mobileMenuFound = 0;
 
      this.api
-        //.resizeWindow(400, 400)
-        .maximizeWindow()
+        .resizeWindow(1300, 400)
+        //.maximizeWindow()
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
@@ -88,8 +88,8 @@ console.log('between two apis');
                 this
                     .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {
                         console.log('----------------------------checking more tab----------------------------');
-                        console.log(result2);
-                        console.log(this);
+                        // console.log(result2);
+                        // console.log(this);
                         if(result2.status != -1) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
