@@ -7,9 +7,7 @@ module.exports = {
             .loginToTenfold()
             .goToDestination(false, 'Integrations')
             .refreshUntilElementVisible("xpath", "//h1[contains(text(), 'CRMs')]", testDuration2)
-            // .refreshUntilElementVisible("xpath", "//h1[contains(text(), 'Phone Systems')]", testDuration2);
-            // .refreshUntilElementVisible("xpath", "//nav[@class='forceCommunityNavigationMenu']")
-            // .click("//a[@title = 'Integrations']")
+            .refreshUntilElementVisible("xpath", "//h1[contains(text(), 'Phone Systems')]", testDuration2);
     },
 
     PC_IntegrationsEnd : function(client) {
