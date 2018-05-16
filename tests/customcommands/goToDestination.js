@@ -74,7 +74,6 @@ console.log('between two apis');
                     .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
                 //a[@class='menuItemLink'][contains(text(),'Integrations')]
                 // this.api.click or this.click?
-                // 
             }
             abc = 1;
             console.log('----------------------------ffffffffffffffffffff----------------------------');
