@@ -86,11 +86,11 @@ console.log('between two apis');
             if(result.value) {
                 console.log('----------------------------standard menu visible----------------------------');
                 this
-                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {
+                    .isVisible("//a/span[contains(text(), 'More')]", function(result2) {
                         console.log('----------------------------checking more tab----------------------------');
                         console.log(result2);
                         // console.log(this);
-                        if(result2.status != -1) {
+                        if(result2.value) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
