@@ -86,22 +86,19 @@ console.log('between two apis');
             if(result.value) {
                 console.log('----------------------------standard menu visible----------------------------');
                 this
-                    .useXpath()
                     .isVisible("//a/span[contains(text(), 'More')]", function(result2) {
                         console.log('----------------------------checking more tab----------------------------');
                         console.log(result2);
                         // console.log(this);
-                        if(result2.status != -1 && result2.value == 'true') {
+                        if(result2.status != -1 && result2.value == true) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
-                                .useXpath()
                                 .click("//a/span[contains(text(), 'More')]")
                                 .click("//div[@class='subMenu']//a[contains(text(),'Integrations')]");
                                 //.click("//div[@class='subMenu']//a[@title='" + MenuTitle + "')]");
                         } else {
                             console.log('----------------------------tab visible right away----------------------------');
                             this
-                                .useXpath()
                                 .click("//a[@title='" + MenuTitle + "']")
                         }
                     })
