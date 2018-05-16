@@ -70,7 +70,7 @@ console.log('between two apis');
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .element('xpath', "//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
-            if(result2.value && result.value.ELEMENT) {
+            if(result.value && result.value.ELEMENT) {
                 this
                     .click("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']")
                     .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
