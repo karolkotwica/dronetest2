@@ -77,22 +77,28 @@ console.log('between two apis');
                 //a[@class='menuItemLink'][contains(text(),'Integrations')]
                 // this.api.click or this.click?
             }
-            abc = 1;
+            mobileMenuFound = 1;
             console.log('----------------------------ffffffffffffffffffff----------------------------');
             console.log(result.value);
             console.log('----------------------------ffffffffffffffffffff----------------------------');
         })
         .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
             if(result.value) {
+                console.log('----------------------------nnnnnnnnnnnnnnnnnnnnn----------------------------');
+                console.log(result.status)
+                console.log('----------------------------nnnnnnnnnnnnnnnnnnnnn----------------------------');
                 this
-                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {                  
+                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
+                        console.log('----------------------------jjjjjjjjjjjjjjjjjj----------------------------');
                         if(result.status != -1) {
+                            console.log('----------------------------mmmmmmmmmmmmmmmmmmmmmmmmm----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
                                 .click("//a[@title='" + MenuTitle + "']")
                         } else {
+                            console.log('----------------------------ppppppppp----------------------------');
                             this
-                            .click("//a[@title='" + MenuTitle + "']")
+                                .click("//a[@title='" + MenuTitle + "']")
                         }
                     })
 
@@ -104,7 +110,7 @@ console.log('between two apis');
             }
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
             console.log(result.value);
-            console.log(abc);
+            console.log(mobileMenuFound);
             console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
 /*
         .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
