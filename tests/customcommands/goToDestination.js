@@ -86,11 +86,12 @@ console.log('between two apis');
             if(result.value) {
                 console.log('----------------------------standard menu visible----------------------------');
                 this
-                    .isVisible("//a/span[contains(text(), 'More')]", function(result2) {
+                    //.isVisible("//a/span[contains(text(), 'More')]", function(result2) {
+                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {  
                         console.log('----------------------------checking more tab----------------------------');
                         console.log(result2);
                         // console.log(this);
-                        if(result2.status != -1 && result2.value == true) {
+                        if(result2.value && result.value.ELEMENT) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
@@ -126,10 +127,7 @@ console.log('between two apis');
         }) 
 
 */
-
         })        
-        .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
-        .click("//a[@title='" + MenuTitle + "']")
         .refreshUntilElementVisible('xpath', "//nav[@class='forceCommunityNavigationMenu']", testDuration)
         .pause(200, () => {
            this.emit('complete');
