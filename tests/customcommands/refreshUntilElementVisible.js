@@ -23,9 +23,6 @@ util.inherits(refreshUntilElementVisible, events.EventEmitter);
 refreshUntilElementVisible.prototype.command = function(selectorType, elementValue, {maxRounds = 10, timeout = 30000} = {}) {
     
     this.api.element(selectorType, elementValue, (result) => {
-        console.log('-------------result------------------');
-        console.log(result);
-        console.log('-------------result------------------');
         if (result.status == 0) {
             this.api.assert.ok(result, `Element visible after ${this.currentRound} rounds.`);
             this.emit('complete');

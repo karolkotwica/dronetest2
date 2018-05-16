@@ -71,6 +71,7 @@ console.log('between two apis');
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .element('xpath', "//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
             if(result.value && result.value.ELEMENT) {
+                console.log('----------------------------mobile menu found----------------------------');
                 this
                     .click("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']")
                     .click("//a[@class='menuItemLink'][contains(text(),'Integrations')]");
@@ -89,20 +90,20 @@ console.log('between two apis');
   //          console.log(result.value);
   //          console.log('----------------------------ffffffffffffffffffff----------------------------');
   //      })
-        .isVisible("//nav[@class='forceCommunityNavigationMenu']", function(result) {
-            if(result.value) {
+        .element('xpath', "//nav[@class='forceCommunityNavigationMenu']", function(result) {
+            if(result.value && result.value.ELEMENT) {
                 console.log('----------------------------standard menu visible----------------------------');
                 this
-                    //.isVisible("//a/span[contains(text(), 'More')]", function(result2) {
-                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {  
+                    //.isVisible("//a/span[contains(text(), 'More')]", function(result) {
+                    .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {  
                         console.log('----------------------------checking more tab----------------------------');
-                        console.log(result2);
+                        console.log(result);
                         // console.log(this);
-                        if(result2.value && result.value.ELEMENT) {
+                        if(result.value && result.value.ELEMENT) {
                             console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
-                                .click("//div[@class='subMenu']//a[contains(text(),'Integrations')]");
+                                .click("//div[@class='subMenu']//a[contains(text(),'" + MenuTitle + "')]");
                                 //.click("//div[@class='subMenu']//a[@title='" + MenuTitle + "')]");
                         } else {
                             console.log('----------------------------tab visible right away----------------------------');
@@ -112,15 +113,9 @@ console.log('between two apis');
                     })
 
                 //a[@class='navigationMenuOverflow menuItemLink triggerLink']
-
-                this
                 //a[@class='menuItemLink'][contains(text(),'Integrations')]
                 // this.api.click or this.click?
             }
-            console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
-            console.log(result.value);
-            console.log(mobileMenuFound);
-            console.log('----------------------------hhhhhhhhhhhhhhhhhhhhh----------------------------');
 /*
         .element('xpath', "//a/span[contains(text(), 'More')]", function(result) {
             if(result.status != -1) {
