@@ -88,7 +88,7 @@ console.log('between two apis');
                 this
                     .element('xpath', "//a/span[contains(text(), 'More')]", function(result2) {
                         console.log('----------------------------checking more tab----------------------------');
-                        // console.log(result2);
+                        console.log(result2);
                         // console.log(this);
                         if(result2.status != -1) {
                             console.log('----------------------------more tab visible ----------------------------');
