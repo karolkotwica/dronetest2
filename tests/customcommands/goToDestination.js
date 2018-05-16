@@ -65,8 +65,8 @@ console.log('between two apis');
     var mobileMenuFound = 0;
 
      this.api
-        .resizeWindow(1300, 400)
-        //.maximizeWindow()
+        //.resizeWindow(1300, 400)
+        .resizeWindow(400, 400)
         .useXpath()
         .refreshUntilElementVisible('xpath', "//div[@class='cNotifications']", testDuration)
         .isVisible("//community_navigation-global-navigation-trigger[@class='cAltToggleNav slds-icon_x-small']", function(result) {
