@@ -93,7 +93,7 @@ console.log('between two apis');
                             console.log('----------------------------more tab visible ----------------------------');
                             this
                                 .click("//a/span[contains(text(), 'More')]")
-                                .click("//a[@title='" + MenuTitle + "']")
+                                .click("//div[@class='subMenu']//a[@title='" + MenuTitle + "')]");
                         } else {
                             console.log('----------------------------tab visible right away----------------------------');
                             this
